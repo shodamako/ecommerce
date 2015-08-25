@@ -52,7 +52,7 @@
 				<option value="8">8</option>
 				<option value="9">9</option>
 			</select></div>
-		
+			<input type="hidden" value="${item.id}">
 		<div ="sendCart" align="center"><p><input type="submit" value="カートに入れる"></p></div>
 	</form>
 		<div ="sendCart" align="center"><p><a href="itemList.html">商品一覧画面へ戻る</a></p></div>

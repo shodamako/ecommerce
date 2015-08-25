@@ -3,6 +3,7 @@ package jp.co.rakus.ecommers.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.rakus.ecommers.service.ShowItemService;
@@ -18,10 +19,10 @@ public class ShowItemController {
 	@Autowired
 	private ShowItemService showItemService;
 	
-	@RequestMapping
-	public String list(){
-		return "/item/itemDetail";
-	}
+//	@RequestMapping
+//	public String list(){
+//		return "/item/itemDetail";
+//	}
 	
 	/**
 	 * id値の商品情報を取得.
@@ -29,8 +30,8 @@ public class ShowItemController {
 	 * @param model モデル
 	 * @return 検索された商品情報
 	 */
-	@RequestMapping(value = "/findbyId")
-	public String findById(Long id, Model model){
+	@RequestMapping(value = "/findById/{itemId}")
+	public String findById(@PathVariable Long id, Model model){
 		ShowItemPage item = showItemService.execute(id);
 		model.addAttribute("item", item);
 		return "itemDetail";
