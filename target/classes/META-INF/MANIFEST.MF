@@ -1,7 +1,11 @@
 Manifest-Version: 1.0
 Implementation-Title: ecommerce
 Implementation-Version: 1.0-SNAPSHOT
+<<<<<<< HEAD
 Built-By: rksuser
+=======
+Built-By: takayuki.honma
+>>>>>>> a7099e0fe076a138beedf688b16d4ac9bdffc8b2
 Implementation-Vendor-Id: rakus.co.jp
 Build-Jdk: 1.8.0_45
 Created-By: Maven Integration for Eclipse
