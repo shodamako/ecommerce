@@ -21,15 +21,15 @@ public class ViewShoppingCartController {
 		return "/viewShoppingCart";
 	}
 	
-//	@Autowired
-//	ViewShoppingCartService viewShoppingService;
-//	
-//	@RequestMapping
-//	public String showCart(@ModelAttribute("orderList")ArrayList<OrderItem> orderItemlist, Model model){
-//		
-//		ViewShoppingCartPage page = viewShoppingService.showCart(orderItemlist);
-//		model.addAttribute("page", page);
-//		
-//		return "/viewShoppingCart";
-//	}
+	@Autowired
+	ViewShoppingCartService viewShoppingService;
+	
+	@RequestMapping
+	public String showCart(@ModelAttribute("orderList")ArrayList<OrderItem> orderItemlist, Model model){
+		
+		ViewShoppingCartPage page = viewShoppingService.showCart(orderItemlist);
+		model.addAttribute("page", page);
+		
+		return "/viewShoppingCart";
+	}
 }
