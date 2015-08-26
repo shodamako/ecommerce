@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 
 /**
- * ログアウトをするControllerクラス.
+ * ユーザのログアウトをするControllerクラス.
  * @author rksuser
  *
  */
@@ -15,7 +15,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @Transactional
 @RequestMapping("/logout")
 // @SessionAttributes(types={UserPage.class, Order.class})
-public class LogoutController {
+public class LogoutUserController {
 
 	/**
 	 * ログイン情報の入ったセッションスコープを削除するメソッド.
