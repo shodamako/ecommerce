@@ -135,9 +135,9 @@
 
 				</tr>
 				<tr>
-					<td><p id="telId" style="display: none; color: red;">
+					<td><p id="telephoneId" style="display: none; color: red;">
 							電話を入力して下さい</p> 電話番号</td>
-					<td><input type="text" name="tel"></td>
+					<td><input type="text" name="telephone"></td>
 
 				</tr>
 				<tr>
