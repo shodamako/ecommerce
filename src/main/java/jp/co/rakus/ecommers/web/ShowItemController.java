@@ -23,7 +23,10 @@ public class ShowItemController {
 //	public String list(){
 //		return "/item/itemDetail";
 //	}
-	
+	@RequestMapping
+	public String list(){
+		return "itemDetail";
+	}
 	/**
 	 * id値の商品情報を取得.
 	 * @param id id値
@@ -31,7 +34,7 @@ public class ShowItemController {
 	 * @return 検索された商品情報
 	 */
 	@RequestMapping(value = "/findById/{itemId}")
-	public String findById(@PathVariable Long id, Model model){
+	public String findById(@PathVariable("itemId") Long id, Model model){
 		ShowItemPage item = showItemService.execute(id);
 		model.addAttribute("item", item);
 		return "itemDetail";
