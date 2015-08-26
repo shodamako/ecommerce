@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/ecHeader.css" />
+<link rel="stylesheet" type="text/css" href="../../css/ecHeader.css" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
 			<p><a href="viewShoppingCart.html">カートの中身を見る</a></p>
 		</div>
 		<div id="linkHeader" align="left"></div>
-			<h1 align ="left"><a href="itemList.html"><img src="../img/rakus.jpg" width="50"
+			<h1 align ="left"><a href="itemList.html"><img src="../../img/rakus.jpg" width="50"
 				height="50" alt="ロゴ画像">ＥＣサイトラクス</a></h1>
 		<div id="title" align="center">
 		</div>
@@ -23,7 +23,7 @@
 	<h2  align="center">商品詳細</h2>
 	<table border="1" align="center">
 		<tr>
-			<td colspan="2" rowspan="3"><img src="../img/pc.jpg" width="150"
+			<td colspan="2" rowspan="3"><img src="../../img/${item.imagePath}.jpg" width="150"
 				height="150" alt="商品画像">
 			</td>
 			<th>商品名：</th>

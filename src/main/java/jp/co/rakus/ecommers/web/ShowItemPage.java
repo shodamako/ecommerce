@@ -10,11 +10,13 @@ import lombok.Data;
 @Data
 public class ShowItemPage {
 	/** 商品ID */
-	Long id;
+	private Long id;
 	/** 商品名 */
-	String name;
+	private String name;
 	/** 商品説明 */
-	String description;
+	private String description;
 	/** 商品価格 */
-	Integer price;
+	private Integer price;
+	/**商品イメージファイルパス*/
+	private String imagePath;
 }

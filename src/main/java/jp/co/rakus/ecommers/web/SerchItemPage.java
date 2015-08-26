@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SerchItemPage {
+	/**	アイテムリスト */
 	private List<SerchItemChildPage> childPage;
 
 }
