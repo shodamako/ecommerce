@@ -87,7 +87,7 @@
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
 			<p>
-				<a href="userLogin.html">ログイン</a>
+				<a href="/loginUser/login">ログイン</a>
 			</p>
 			<p>
 				<a href="/cart">カートの中身を見る</a>
