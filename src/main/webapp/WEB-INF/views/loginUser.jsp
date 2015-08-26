@@ -35,5 +35,6 @@
 		</form:form>
 		<a href="/registerUser">新規登録はこちら</a>
 	</div>
+
 </body>
 </html>
