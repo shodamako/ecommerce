@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
 		</tr>
 		<tr>
 			<th>価格：</th>
-			<td align="center">&yen;<c:out value="${item.price}"/></td>
+			<td align="center">&yen;<fmt:formatNumber value="${item.price}" pattern="###,###" /></td>
 		</tr>
 		<tr>
 			<th>商品説明：</th>
