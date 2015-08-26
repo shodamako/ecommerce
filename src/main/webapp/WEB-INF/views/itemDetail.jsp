@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,21 +41,13 @@
 	</table>
 	<br>
 	<div id="selectQuantity" align="center">
-	<form action="/cart" method="post">
-					個数：<select name="quantity">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-			</select></div>
-			<input type="hidden" value="${item.id}">
-		<div ="sendCart" align="center"><p><input type="submit" value="カートに入れる"></p></div>
-	</form>
-		<div ="sendCart" align="center"><p><a href="itemList.html">商品一覧画面へ戻る</a></p></div>
+	<form:form modelAttribute="addCartForm" action="/addCart">
+	個数：<form:input path="quantity"/><form:errors path="quantity"/>
+	</div>
+			<form:hidden path="itemId" value="${item.id}"/>
+		<div class="sendCart" align="center"><p><input type="submit" value="カートに入れる"></p></div>
+	</form:form>
+
+		<div class="sendCart" align="center"><p><a href="itemList.html">商品一覧画面へ戻る</a></p></div>
 </body>
 </html>

@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.rakus.ecommers.domain.OrderItem;
 import jp.co.rakus.ecommers.service.AddCartService;
+
 
 /**
  * ショッピングカートへ商品を追加するControllerクラス.
@@ -41,11 +44,14 @@ public class AddCartController {
 	 * @param orderItemList セッションスコープに入れてあるショッピングカート内の商品一覧
 	 * @return 商品一覧ページ
 	 */
-	@RequestMapping()
-	public String addCart(AddCartForm form, Model model, @ModelAttribute("") ArrayList<OrderItem> orderItemList){
-		ArrayList<OrderItem> cartItemList = addCartService.addCart(form, orderItemList);
-		model.addAttribute("cartItemList", cartItemList);
-		return "";
+	@RequestMapping
+	public String addCart(@Validated AddCartForm form,BindingResult result, Model model, @ModelAttribute("orderItemList") ArrayList<OrderItem> cartItemList){
+		if(result.hasErrors()){
+			return "/serchItem";
+		}
+		ArrayList<OrderItem> orderItemList = addCartService.addCart(form, cartItemList);
+		model.addAttribute("orderItemList", orderItemList);
+		return "/serchItem";
 	}
 	
 }

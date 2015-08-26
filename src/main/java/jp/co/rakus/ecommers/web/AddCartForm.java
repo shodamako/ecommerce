@@ -1,5 +1,7 @@
 package jp.co.rakus.ecommers.web;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import lombok.Data;
 
 /**
@@ -14,5 +16,6 @@ public class AddCartForm {
 	/**商品ID*/
 	private Long itemId;
 	/**個数*/
+	@NotBlank
 	private Integer quantity;
 }
