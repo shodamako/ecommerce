@@ -28,7 +28,7 @@
 パスワード：<form:password path="password" placeholder="password"/><br>
 <input type="submit" value="ログイン">
 </form:form>
-  <a href="registerUser.jsp">新規登録はこちら</a>
+  <a href="/registerUser/input">新規登録はこちら</a>
   </div>
 </body>
 </html>

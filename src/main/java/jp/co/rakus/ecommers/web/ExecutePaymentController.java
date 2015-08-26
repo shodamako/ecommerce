@@ -23,7 +23,7 @@ public class ExecutePaymentController {
 	@RequestMapping(value = "insert")
 	public String insert(@ModelAttribute("orderItemList") ArrayList<OrderItem> orderItem, @ModelAttribute("user") User user){
 		executePaymentService.insert(orderItem, user);
-		return "finishedPayment";
+		return "redirect:/finishedPayment";
 	}
 
 }
