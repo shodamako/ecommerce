@@ -16,6 +16,11 @@ import jp.co.rakus.ecommers.domain.OrderItem;
 @RequestMapping("/cart")
 public class ViewShoppingCartController {
 	
+	@RequestMapping
+	public String showCart(){
+		return "/viewShoppingCart";
+	}
+	
 //	@Autowired
 //	ViewShoppingCartService viewShoppingService;
 //	
