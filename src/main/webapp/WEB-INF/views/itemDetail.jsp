@@ -9,26 +9,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-<header>
+	<header>
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
-			<p><a href="userLogin.html">ログイン</a></p>
-			<p><a href="viewShoppingCart.html">カートの中身を見る</a></p>
+			<p>
+				<a href="userLogin.html">ログイン</a>
+			</p>
+			<p>
+				<a href="/cart">カートの中身を見る</a>
+			</p>
 		</div>
 		<div id="linkHeader" align="left"></div>
-			<h1 align ="left"><a href="itemList.html"><img src="../../img/rakus.jpg" width="50"
-				height="50" alt="ロゴ画像">ＥＣサイトラクス</a></h1>
-		<div id="title" align="center">
-		</div>
-</header>
-	<h2  align="center">商品詳細</h2>
+		<h1 align="left">
+			<a href="itemList.html"><img src="../../img/rakus.jpg" width="50"
+				height="50" alt="ロゴ画像">ＥＣサイトラクス</a>
+		</h1>
+		<div id="title" align="center"></div>
+	</header>
+	<h2 align="center">商品詳細</h2>
 	<table border="1" align="center">
 		<tr>
-			<td colspan="2" rowspan="3"><img src="../../img/${item.imagePath}.jpg" width="150"
-				height="150" alt="商品画像">
-			</td>
+			<td colspan="2" rowspan="3"><img
+				src="../../img/${item.imagePath}.jpg" width="150" height="150"
+				alt="商品画像"></td>
 			<th>商品名：</th>
-			<td align="center"><c:out value="${item.name}"/></td>
+			<td align="center"><c:out value="${item.name}" /></td>
 		</tr>
 		<tr>
 			<th>価格：</th>
@@ -36,13 +41,16 @@
 		</tr>
 		<tr>
 			<th>商品説明：</th>
-			<td><c:out value="${item.description}"/></td>
+			<td><c:out value="${item.description}" /></td>
 		</tr>
 	</table>
+
 	<br>
+
 	<div id="selectQuantity" align="center">
-	<form action="/cart" method="post">
-					個数：<select name="quantity">
+		<form action="/cart" method="post">
+
+			個数：<select name="quantity">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -52,10 +60,19 @@
 				<option value="7">7</option>
 				<option value="8">8</option>
 				<option value="9">9</option>
-			</select></div>
-			<input type="hidden" value="${item.id}">
-		<div ="sendCart" align="center"><p><input type="submit" value="カートに入れる"></p></div>
-	</form>
-		<div ="sendCart" align="center"><p><a href="itemList.html">商品一覧画面へ戻る</a></p></div>
+			</select> <input type="hidden" value="${item.id}">
+			<div class="sendCart" align="center">
+				<p>
+					<input type="submit" value="カートに入れる">
+				</p>
+			</div>
+		</form>
+	</div>
+
+	<div class="sendCart" align="center">
+		<p>
+			<a href="itemList.html">商品一覧画面へ戻る</a>
+		</p>
+	</div>
 </body>
 </html>
