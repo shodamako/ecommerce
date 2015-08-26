@@ -10,16 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.rakus.ecommers.domain.OrderItem;
+import jp.co.rakus.ecommers.service.ViewShoppingCartService;
 
 @Controller
 @Transactional
 @RequestMapping("/cart")
 public class ViewShoppingCartController {
-	
-	@RequestMapping
-	public String showCart(){
-		return "/viewShoppingCart";
-	}
 	
 	@Autowired
 	ViewShoppingCartService viewShoppingService;
@@ -27,7 +23,7 @@ public class ViewShoppingCartController {
 	@RequestMapping
 	public String showCart(@ModelAttribute("orderList")ArrayList<OrderItem> orderItemlist, Model model){
 		
-		ViewShoppingCartPage page = viewShoppingService.showCart(orderItemlist);
+		ViewShoppingCartPage page = viewShoppingService.showCart(orderItemlist, model);		
 		model.addAttribute("page", page);
 		
 		return "/viewShoppingCart";
