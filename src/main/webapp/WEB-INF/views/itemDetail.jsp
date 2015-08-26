@@ -66,7 +66,7 @@
 		<div class="sendCart" align="center"><p><a href="itemList.html">商品一覧画面へ戻る</a></p></div>
 =======
 --%>
-		<form action="/cart" method="post">
+		<form action="/addCart" method="post">
 
 			個数：<select name="quantity">
 				<option value="1">1</option>
@@ -78,7 +78,7 @@
 				<option value="7">7</option>
 				<option value="8">8</option>
 				<option value="9">9</option>
-			</select> <input type="hidden" value="${item.id}">
+			</select> <input type="hidden" name="itemId" value="${item.id}">
 			<div class="sendCart" align="center">
 				<p>
 					<input type="submit" value="カートに入れる">

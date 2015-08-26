@@ -26,12 +26,12 @@ public class AddCartService {
 	 * @param orderItemList ショッピングカート内の商品リスト
 	 * @return 商品リスト
 	 */
-	public ArrayList<OrderItem> addCart(AddCartForm form, ArrayList<OrderItem> orderItemList) {
-		Item item = addCartRepository.findbyId(form.getItemId());
+	public ArrayList<OrderItem> addCart(Long itemId, Integer quantity, ArrayList<OrderItem> orderItemList) {
+		Item item = addCartRepository.findbyId(itemId);
 		OrderItem orderItem = new OrderItem();
 		orderItem.setItem(item);
-		orderItem.setItemId(form.getItemId());
-		orderItem.setQuantity(form.getQuantity());
+		orderItem.setItemId(itemId);
+		orderItem.setQuantity(quantity);
 		if (orderItemList == null) {
 			ArrayList<OrderItem> newOrderItemList = new ArrayList<>();
 			newOrderItemList.add(orderItem);
