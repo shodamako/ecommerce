@@ -97,16 +97,12 @@ public class RegisterUserController {
 		}
 		
 		/** 登録 */
-		/** 新海さんのと結合後にreturn指定！！！ */
-
-		System.out.println(form);
 		
 		UserPage page = registerUserService.execute(form, result, model);
 		
 		model.addAttribute("page", page);
 		redirectAttributes.addFlashAttribute("page", page);
-		System.out.println("登録完了");
-		return input();
+		return "loginUser/login";
 	}
 
 }
