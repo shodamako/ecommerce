@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import jp.co.rakus.ecommers.domain.Item;
 import jp.co.rakus.ecommers.domain.OrderItem;
@@ -21,8 +20,7 @@ public class MakePaymentService {
 	 * @return　ページ情報のリスト
 	 */
 
-	public MakePaymentPage execute(@ModelAttribute("orderItemList") ArrayList<OrderItem> orderItemList, 
-			@ModelAttribute("user") UserPage user) {
+	public MakePaymentPage execute(ArrayList<OrderItem> orderItemList, UserPage user) {
 		MakePaymentPage page = new MakePaymentPage();
 		List<MakePaymentChildPage> mpcpList = new ArrayList<>();
 		Integer tax = 0;
