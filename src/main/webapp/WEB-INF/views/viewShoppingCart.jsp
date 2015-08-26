@@ -29,7 +29,6 @@
 
     <p align="center">カートに商品がありません</p>
 
-
         <table border ="1"  align="center">
             <tr>
                 <th colspan="2">商品名</th>
@@ -38,9 +37,9 @@
                 <th></th>
             </tr>
             
-            <c:forEach var="item" items="page.orderItemList">
+            <c:forEach var="item" items="${page.orderItemList}">
             
-            <tr>
+<!--             <tr>
 				<td><a href="itemDetail.html"><img src="../img/pc.jpg" width="150"height="125" alt="商品画像"></a></td>
                 <td><a href="itemDetail.html"><c:out value="${item.item.name}"/></a></td>
                 <td>&yen;<c:out value="${item.item.price}"/></td>
@@ -52,7 +51,7 @@
                     </form>
                 </td>
             </tr>
-            
+-->            
             </c:forEach>
             
         </table><br>
