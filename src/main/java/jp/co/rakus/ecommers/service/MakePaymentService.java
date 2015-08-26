@@ -10,6 +10,7 @@ import jp.co.rakus.ecommers.domain.Item;
 import jp.co.rakus.ecommers.domain.OrderItem;
 import jp.co.rakus.ecommers.web.MakePaymentChildPage;
 import jp.co.rakus.ecommers.web.MakePaymentPage;
+import jp.co.rakus.ecommers.web.UserPage;
 
 @Service
 public class MakePaymentService {
@@ -19,7 +20,7 @@ public class MakePaymentService {
 	 * @param form　検索フォーム
 	 * @return　ページ情報のリスト
 	 */
-//	public MakePaymentPage execute() {}
+
 	public MakePaymentPage execute(@ModelAttribute("orderItemList") ArrayList<OrderItem> orderItemList, 
 			@ModelAttribute("user") UserPage user) {
 		MakePaymentPage page = new MakePaymentPage();
@@ -48,8 +49,8 @@ public class MakePaymentService {
 		
 		page.setName(user.getName());
 		page.setEmail(user.getEmail());
-		page.setAddress(user.getAdress());
-		page.setTelephone(user.getTelephone);
+		page.setAddress(user.getAddress());
+		page.setTelephone(user.getTelephone());
 		
 		return page;
 	}
