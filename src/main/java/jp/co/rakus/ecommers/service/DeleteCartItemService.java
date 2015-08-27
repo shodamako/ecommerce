@@ -23,11 +23,7 @@ public class DeleteCartItemService {
 	 */
 	public void execute(ArrayList<OrderItem> orderItemlist, Long itemId, Model model){
 				
-<<<<<<< HEAD
 		for(int i = 0; i > orderItemlist.size(); i++){
-=======
-		for(int i = 0; i < orderItemList.size(); i++){
->>>>>>> 809194d5d36ab19fc3e44baa8b4f7b52321e13eb
 			
 			OrderItem orderItem = orderItemlist.get(i);
 			Long checkId = orderItem.getItemId();		
@@ -38,10 +34,7 @@ public class DeleteCartItemService {
 			}
 		}
 		
-<<<<<<< HEAD
 		model.addAttribute("orderItemlist", orderItemlist);
-=======
-		model.addAttribute("orderItemlist", orderItemList);
->>>>>>> 809194d5d36ab19fc3e44baa8b4f7b52321e13eb
+
 	}
 }
