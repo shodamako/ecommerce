@@ -1,9 +1,13 @@
 package jp.co.rakus.ecommers.repository;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import jp.co.rakus.ecommers.domain.Order;
@@ -16,7 +20,13 @@ import jp.co.rakus.ecommers.domain.OrderItem;
 @Repository
 public class OrderRepository {
 	@Autowired
-	NamedParameterJdbcTemplate jdbcTemplate;	
+	private NamedParameterJdbcTemplate jdbcTemplate;
+	private SimpleJdbcInsert insert;
+	
+	@PostConstruct
+	public void init(){
+		insert = new SimpleJdbcInsert((JdbcTemplate) jdbcTemplate.getJdbcOperations()).withTableName("orders").usingGeneratedKeyColumns("id");
+	}
 	
 	/**
 	 * 注文情報を登録する.
@@ -33,6 +43,11 @@ public class OrderRepository {
 	 */
 	public void insertOrderItem(OrderItem orderItem){
 		SqlParameterSource param = new BeanPropertySqlParameterSource(orderItem);
+		if(orderItem.getId() == null){
+			Number key = insert.executeAndReturnKey(param);
+			orderItem.setOrderId(key.longValue());
+			jdbcTemplate.update("INSERT INTO order_items(item_id, order_id, quantity) values(:itemId, :orderId, :quantity)", param);
+		}
 		jdbcTemplate.update("INSERT INTO order_items(item_id, order_id, quantity) values(:itemId, :orderId, :quantity)", param);
 	}
 }

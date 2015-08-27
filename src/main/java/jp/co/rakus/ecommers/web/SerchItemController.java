@@ -18,7 +18,6 @@ import jp.co.rakus.ecommers.service.SerchItemService;
 @Controller
 @RequestMapping("/serchItem")
 @Transactional
-@SessionAttributes("orderItemlist")
 public class SerchItemController {
 	
 	@Autowired
