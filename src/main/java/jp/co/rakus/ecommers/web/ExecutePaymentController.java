@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jp.co.rakus.ecommers.domain.OrderItem;
-import jp.co.rakus.ecommers.domain.User;
 import jp.co.rakus.ecommers.service.ExecutePaymentService;
 
 /**
