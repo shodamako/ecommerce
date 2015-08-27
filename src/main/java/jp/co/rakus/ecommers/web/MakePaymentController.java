@@ -37,5 +37,26 @@ public class MakePaymentController {
 		model.addAttribute("makePaymentPage", makePaymentPage);
 		return "/makePayment";
 	}
+//	@RequestMapping(value ="/")
+//	public String list(Model model){
+//		MakePaymentPage makePaymentPage = new MakePaymentPage();
+//		MakePaymentChildPage child = new MakePaymentChildPage();
+//		child.setName("aa");
+//		child.setPrice(100);
+//		child.setQuantity(3);
+//		child.setTaxPrice(200);
+//		child.setSumPrice(200);
+//		List<MakePaymentChildPage> list = new ArrayList<>();
+//		list.add(child);
+//		makePaymentPage.setTax(100);
+//		makePaymentPage.setTotalPrice(100);
+//		makePaymentPage.setName("aaa");
+//		makePaymentPage.setEmail("aa@aa");
+//		makePaymentPage.setAddress("土浦");
+//		makePaymentPage.setTelephone("080");
+//		makePaymentPage.setChildPage(list);
+//		model.addAttribute("makePaymentPage", makePaymentPage);
+//		return "/makePayment";
+//	}
 
 }

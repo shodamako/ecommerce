@@ -70,7 +70,7 @@
 			 メールアドレス：<c:out value="${makePaymentPage.email}"/><br>
 			  住所：<c:out value="${makePaymentPage.address}"/><br>
 			電話番号：<c:out value="${makePaymentPage.telephone}"/><br>
-	<form:form action="/executePayment" method="post">
+	<form:form action="/executePayment/insert" method="post">
 			<br> <input type="submit" value="確定">
 	</form:form>
 	</div>

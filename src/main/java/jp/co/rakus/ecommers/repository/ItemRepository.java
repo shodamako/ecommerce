@@ -14,7 +14,7 @@ import jp.co.rakus.ecommers.domain.Item;
 
 /**
  * 商品関連リポジトリクラス.
- * @author ueno
+ * @author masashi.ueno
  *
  */
 @Repository
