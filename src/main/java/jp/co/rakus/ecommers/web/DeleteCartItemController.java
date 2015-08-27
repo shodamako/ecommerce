@@ -30,12 +30,13 @@ public class DeleteCartItemController {
 	private DeleteCartItemService deleteCartItemService;
 	
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public String delete(@ModelAttribute("orderItemlist")ArrayList<OrderItem> orderItemList, 
+	public String delete(@ModelAttribute("orderItemlist")ArrayList<OrderItem> orderItemlist, 
+
 			Long itemId,
 			RedirectAttributes redirectattributes,
 			Model model){
 					
-		deleteCartItemService.execute(orderItemList, itemId, model);
+		deleteCartItemService.execute(orderItemlist, itemId, model);
 		
 		return "redirect:/cart";
 		

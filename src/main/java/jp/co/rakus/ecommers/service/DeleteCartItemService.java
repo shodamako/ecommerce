@@ -21,19 +21,20 @@ public class DeleteCartItemService {
 	 * カート商品削除のメソッド.
 	 * @param itemId　削除したい商品のID
 	 */
-	public void execute(ArrayList<OrderItem> orderItemList, Long itemId, Model model){
+	public void execute(ArrayList<OrderItem> orderItemlist, Long itemId, Model model){
 				
-		for(int i = 0; i < orderItemList.size(); i++){
+		for(int i = 0; i < orderItemlist.size(); i++){
 			
-			OrderItem orderItem = orderItemList.get(i);
+			OrderItem orderItem = orderItemlist.get(i);
 			Long checkId = orderItem.getItemId();		
 			
 			if( checkId == itemId){
-				orderItemList.remove(i);
+				orderItemlist.remove(i);
 				break;					
 			}
 		}
 		
-		model.addAttribute("orderItemlist", orderItemList);
+		model.addAttribute("orderItemlist", orderItemlist);
+
 	}
 }
