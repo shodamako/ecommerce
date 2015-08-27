@@ -61,19 +61,21 @@ public class RegisterUserController {
 		/** 入力値チェック */
 		
 		if(result.hasErrors()){
-			FieldError error = new FieldError("nameError", "name", "");
-			FieldError error2 = new FieldError("emailError", "email", "");
-			FieldError error3 = new FieldError("passwordError", "password", "");
-			FieldError error4 = new FieldError("confirmPasswordError", "confirmPassword", "");
-			FieldError error5 = new FieldError("addressError", "address", "");
-			FieldError error6 = new FieldError("telephoneError", "telephone", "");
-			result.addError(error);
-			result.addError(error2);
-			result.addError(error3);
-			result.addError(error4);
-			result.addError(error5);
-			result.addError(error6);
+//			FieldError error = new FieldError("nameError", "name", "");
+//			FieldError error2 = new FieldError("emailError", "email", "");
+//			FieldError error3 = new FieldError("passwordError", "password", "");
+//			FieldError error4 = new FieldError("confirmPasswordError", "confirmPassword", "");
+//			FieldError error5 = new FieldError("addressError", "address", "");
+//			FieldError error6 = new FieldError("telephoneError", "telephone", "");
+//			result.addError(error);
+//			result.addError(error2);
+//			result.addError(error3);
+//			result.addError(error4);
+//			result.addError(error5);
+//			result.addError(error6);
 			
+			ObjectError error = new ObjectError("registerError", "");
+			result.addError(error);
 			return input();
 		}
 		
@@ -82,7 +84,7 @@ public class RegisterUserController {
 		String email = form.getEmail();
 		User checkUser = registerUserService.findByEmail(email);
 		if(!(checkUser == null)){
-			ObjectError error = new ObjectError("emailError", "そのアドレスはすでに使われています");
+			ObjectError error = new ObjectError("emailError", "そのアドレスは既に使われています");
 			result.addError(error);
 			return input();
 		}
@@ -92,7 +94,7 @@ public class RegisterUserController {
 		String password = form.getPassword();
 		String confirmPassword = form.getConfirmPassword();
 		if(!(password.equals(confirmPassword))){
-			ObjectError error = new ObjectError("passwordError", "パスワードが一致しません");
+			ObjectError error = new ObjectError("passwordError", "確認用パスワードがパスワードと異なります");
 			result.addError(error);
 			return input();
 		}

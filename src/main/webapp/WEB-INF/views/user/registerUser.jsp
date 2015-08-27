@@ -105,7 +105,7 @@
 	<div align="center">
 		<h1>新規利用者登録画面</h1>
 		<br> <br> お客様の情報を入力し、「お客様情報を登録する」ボタンをクリックしてください。 <br> <br>
-		
+		<form:errors path="registerUserForm.*" />
 		<form:form modelAttribute="registerUserForm" enctype="multipart/form-data"
 			action="/registerUser/create" method="post">
 			<br>
@@ -113,27 +113,27 @@
 			<table border="">
 			
 				<tr>
-					<td>名前</td><form:errors path="name" />
+					<td>名前</td>
 					<td><form:input path="name"/></td>		
 				</tr>
 				<tr>
-					<td>メールアドレス</td><form:errors path="email" />
+					<td>メールアドレス</td>
 					<td><form:input path="email"/></td>		
 				</tr>
 				<tr>
-					<td>住所</td><form:errors path="address" />
+					<td>住所</td>
 					<td><form:input path="address"/></td>		
 				</tr>
 				<tr>
-					<td>電話番号</td><form:errors path="telephone" />
+					<td>電話番号</td>
 					<td><form:input path="telephone"/></td>		
 				</tr>
 				<tr>
-					<td>パスワード</td><form:errors path="password" />
+					<td>パスワード</td>
 					<td><form:input path="password"/></td>		
 				</tr>
 				<tr>
-					<td>確認用パスワード</td><form:errors path="confirmPassword" />
+					<td>確認用パスワード</td>
 					<td><form:input path="confirmPassword"/></td>		
 				</tr>
 				
