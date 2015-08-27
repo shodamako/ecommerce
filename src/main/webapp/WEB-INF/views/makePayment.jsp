@@ -29,7 +29,7 @@
 	</header>
 	<h2 align="center">ご注文内容</h2>
 	<hr>
-		<table border="1" width="350" align="center">
+		<table border="1" width="380" align="center">
 			<tr>
 				<th>商品名</th>
 				<th>価格</th>
@@ -40,25 +40,25 @@
 			<c:forEach var="item" items="${makePaymentPage.childPage}">
 				<tr>
 					<td><c:out value="${item.name}"/></td>
-					<td><c:out value="${item.price}"/></td>
-					<td><c:out value="${item.quantity}"/></td>
-					<td><c:out value="${item.taxPrice}"/></td>
-					<td><c:out value="${item.sumPrice}"/></td>
+					<td align="right">￥<fmt:formatNumber value="${item.price}" pattern="###,###"/></td>
+					<td align="right"><c:out value="${item.quantity}"/></td>
+					<td align="right">￥<fmt:formatNumber value="${item.taxPrice}" pattern="###,###"/></td>
+					<td align="right">￥<fmt:formatNumber value="${item.sumPrice}" pattern="###,###"/></td>
 				</tr>
 			</c:forEach>
 			<tr>
 				<td>消費税</td>
-				<td align="right" colspan="4"><c:out value="${makePaymentPage.tax}"/></td>
+				<td align="right" colspan="4">￥<fmt:formatNumber value="${makePaymentPage.tax}" pattern="###,###"/></td>
 
 			</tr>
 			<tr>
 				<td>送料一律</td>
-				<td align="right" colspan="4"><c:out value="${makePaymentPage.portCost}"/></td>
+				<td align="right" colspan="4">￥<fmt:formatNumber value="${makePaymentPage.portCost}" pattern="###,###"/></td>
 
 			</tr>
 			<tr>
 				<td>商品合計</td>
-				<td align="right" colspan="4"><c:out value="${makePaymentPage.totalPrice}"/></td>
+				<td align="right" colspan="4">￥<fmt:formatNumber value="${makePaymentPage.totalPrice}" pattern="###,###"/></td>
 
 			</tr>
 		</table>
