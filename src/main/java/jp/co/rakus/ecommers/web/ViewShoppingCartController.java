@@ -28,6 +28,14 @@ public class ViewShoppingCartController {
 		ViewShoppingCartPage page = viewShoppingService.showCart(orderItemlist, model);		
 		model.addAttribute("page", page);
 		
+//		for(OrderItem item: orderItemlist){
+			if(orderItemlist.size() == 0){
+				String message = "カートに商品がありません";
+				model.addAttribute("message", message);
+			}
+//		}
+		
+		
 		return "/viewShoppingCart";
 	}
 }
