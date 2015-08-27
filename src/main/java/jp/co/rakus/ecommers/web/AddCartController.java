@@ -2,7 +2,6 @@ package jp.co.rakus.ecommers.web;
 
 import java.util.ArrayList;
 
-import org.jboss.logging.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,20 +24,12 @@ import jp.co.rakus.ecommers.service.AddCartService;
 @Controller
 @Transactional
 @RequestMapping("/addCart")
-@SessionAttributes(types={UserPage.class, ArrayList.class})
+@SessionAttributes("orderItemlist")
 public class AddCartController {
 
 	@Autowired
 	private AddCartService addCartService;
 	
-	/**
-	 * フォームの初期化.
-	 * @return
-	 */
-//	@ModelAttribute
-//	private AddCartForm setUpForm(){
-//		return new AddCartForm();
-//	}
 	/**
 	 * ショッピングカートへ商品を追加するメソッド.
 	 * @param form リクエスト
@@ -46,20 +37,16 @@ public class AddCartController {
 	 * @param orderItemList セッションスコープに入れてあるショッピングカート内の商品一覧
 	 * @return 商品一覧ページ
 	 */
-//	@RequestMapping
-//	public String addCart(@Validated AddCartForm form,BindingResult result, Model model, @ModelAttribute("orderItemList") ArrayList<OrderItem> cartItemList){
-//		if(result.hasErrors()){
-//			return "/serchItem";
-//		}
-//		ArrayList<OrderItem> orderItemList = addCartService.addCart(form, cartItemList);
-//		model.addAttribute("orderItemList", orderItemList);
-//		return "/serchItem";
-//	}
-	@RequestMapping
-	public String addCart(Long itemId, Integer quantity, Model model, @ModelAttribute("orderItemList") ArrayList<OrderItem> cartItemList){
-		
-		ArrayList<OrderItem> orderItemList = addCartService.addCart(itemId, quantity, cartItemList);
-		model.addAttribute("orderItemList", orderItemList);
-		return "/serchItem";
+	
+	@RequestMapping()
+	public String addCart(@Validated AddCartForm form,BindingResult result, Model model, @ModelAttribute("orderItemList") ArrayList<OrderItem> cartItemList){
+		System.out.println("varidation前");
+		if(result.hasErrors()){
+			return "forward:/serchItem";
+		}
+		System.out.println("varidation後");
+		ArrayList<OrderItem> orderItemList = addCartService.addCart(form, cartItemList);
+		model.addAttribute("orderItemlist", orderItemList);
+		return "forward:/serchItem/";
 	}
 }
