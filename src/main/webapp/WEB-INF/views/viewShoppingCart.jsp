@@ -12,12 +12,12 @@
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
 			<p>
-				<a href="userLogin.html">ログイン</a>
+				<a href="/loginUser">ログイン</a>
 			</p>
 		</div>
 		<div id="linkHeader" align="left">
 			<h1 align="left">
-				<a href="itemList.html"><img src="../img/rakus.jpg" width="50"
+				<a href="/serchItem/"><img src="../img/rakus.jpg" width="50"
 					height="50" alt="ロゴ画像">ＥＣサイトラクス</a>
 			</h1>
 		</div>
