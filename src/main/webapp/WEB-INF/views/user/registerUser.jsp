@@ -87,7 +87,7 @@
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
 			<p>
-				<a href="userLogin.html">ログイン</a>
+				<a href="/loginUser/login">ログイン</a>
 			</p>
 			<p>
 				<a href="/cart">カートの中身を見る</a>
@@ -135,9 +135,9 @@
 
 				</tr>
 				<tr>
-					<td><p id="telId" style="display: none; color: red;">
+					<td><p id="telephoneId" style="display: none; color: red;">
 							電話を入力して下さい</p> 電話番号</td>
-					<td><input type="text" name="tel"></td>
+					<td><input type="text" name="telephone"></td>
 
 				</tr>
 				<tr>
@@ -161,61 +161,5 @@
 			<input type="reset" value="入力内容をクリアする">	
 
 		</form:form>
-		
-		
-		<!-- 以下は以前のもの -->
-		
-		<form action="/registerUser/create" method="post" name="form1"
-			onsubmit="return check()">
-			<br>
-			<table border="">
-				<tr>
-					<td><p id="nameId" style="display: none; color: red;">
-							名前を入力して下さい</p> 名前</td>
-					<td><input type="text" name="name"></td>
-
-				</tr>
-				<tr>
-					<td><p id="mailId" style="display: none; color: red;">アドレスを入力して下さい</p>
-						<p id="mailId2" style="display: none; color: red;">アドレスが不正です</p>
-						メールアドレス</td>
-					<td><input type="text" name="mail"></td>
-
-				</tr>
-				<tr>
-					<td><p id="addressId" style="display: none; color: red;">
-							住所を入力して下さい</p> 住所</td>
-					<td><input type="text" name="address"></td>
-
-				</tr>
-				<tr>
-					<td><p id="telId" style="display: none; color: red;">
-							電話を入力して下さい</p> 電話番号</td>
-					<td><input type="text" name="tel"></td>
-
-				</tr>
-				<tr>
-					<td><p id="passwordId" style="display: none; color: red;">
-							パスワードを入力して下さい</p> パスワード<br> <font color="red"><small>8桁以上16桁以下で設定してください</small></font></td>
-					<td><input type="password" name="password"></td>
-
-				</tr>
-				<tr>
-					<td><p id="confirmPasswordId"
-							style="display: none; color: red;">確認用パスワードを入力して下さい</p>
-						<br> 確認用パスワード<br> <font color="red"><small>設定したパスワードを再度入力してください</small></font>
-					</td>
-					<td><input type="password" name="confirmPassword"></td>
-
-				</tr>
-			</table>
-
-			<br> <br>
-			<input type="submit" value="お客様情報を登録する"> <input type="reset"
-				value="入力内容をクリアする">
-
-		</form>
-	</div>
-
 </body>
 </html>

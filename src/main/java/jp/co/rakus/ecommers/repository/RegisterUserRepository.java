@@ -21,14 +21,14 @@ import jp.co.rakus.ecommers.domain.User;
 public class RegisterUserRepository {
 
 	private static final RowMapper<User> USER_ROW_MAPPER = (rs, i) -> {
-		Long id = rs.getLong("id");
+//		Long id = rs.getLong("id");
 		String name = rs.getString("name");
 		String email = rs.getString("email");
 		String password = rs.getString("password");
 		String address = rs.getString("address");
 		String telephone = rs.getString("telephone");
 
-		return new User(id, name, email, password, address, telephone);
+		return new User(null, name, email, password, address, telephone);
 	};
 
 	@Autowired
@@ -63,11 +63,12 @@ public class RegisterUserRepository {
 	public User save(User user) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(user);
 		try {
+			
 			jdbcTemplate.update(
 					"INSERT INTO users (name, email, password, address, telephone) VALUES (:name, :email, :password, :address, :telephone)",
 					param);
 			User userData = new User();
-			userData = jdbcTemplate.queryForObject("SELECT id, name, email, password, telephone FROM users WHERE email = :email", 
+			userData = jdbcTemplate.queryForObject("SELECT id, name, email, address, telephone FROM users WHERE email = :email", 
 					param, 
 					USER_ROW_MAPPER);
 			
