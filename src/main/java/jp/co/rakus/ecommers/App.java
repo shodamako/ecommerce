@@ -1,12 +1,10 @@
 package jp.co.rakus.ecommers;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-@EnableAutoConfiguration
-@ComponentScan
+@SpringBootApplication
 @SessionAttributes("orderItemList")
 public class App {
 
