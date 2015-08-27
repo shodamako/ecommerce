@@ -30,6 +30,9 @@ public class AddCartController {
 	@Autowired
 	private AddCartService addCartService;
 	
+	@Autowired
+	private ShowItemController showItemController;
+	
 	/**
 	 * ショッピングカートへ商品を追加するメソッド.
 	 * @param form リクエスト
@@ -38,10 +41,10 @@ public class AddCartController {
 	 * @return 商品一覧ページ
 	 */
 	
-	@RequestMapping()
-	public String addCart(@Validated AddCartForm form,BindingResult result, Model model, @ModelAttribute("orderItemlist") ArrayList<OrderItem> cartItemList){
+	@RequestMapping
+	public String addCart(@Validated AddCartForm form, BindingResult result, Model model, @ModelAttribute("orderItemlist") ArrayList<OrderItem> cartItemList){
 		if(result.hasErrors()){
-			return "forward:/serchItem";
+			return showItemController.findById(form.getItemId(), model);
 		}
 		addCartService.addCart(model, form, cartItemList);
 		model.addAttribute("orderItemlist", cartItemList);
