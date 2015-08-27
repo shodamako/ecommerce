@@ -21,11 +21,7 @@ import jp.co.rakus.ecommers.service.ViewShoppingCartService;
 @Controller
 @Transactional
 @RequestMapping("/cart")
-<<<<<<< HEAD
 @SessionAttributes("orderItemList")
-=======
-@SessionAttributes("orderItemlist")
->>>>>>> f53a42ab4893502176b519f3645ce1c47e1c63df
 public class ViewShoppingCartController {
 	
 	@Autowired
@@ -37,13 +33,8 @@ public class ViewShoppingCartController {
 	 * @return
 	 */
 	@RequestMapping
-<<<<<<< HEAD
-	public String showCart(@ModelAttribute("orderList")ArrayList<OrderItem> orderItemlist, Model model){
-				
-=======
 	public String showCart(@ModelAttribute("orderItemlist")ArrayList<OrderItem> orderItemlist, Model model){
 		
->>>>>>> f53a42ab4893502176b519f3645ce1c47e1c63df
 		ViewShoppingCartPage page = viewShoppingService.showCart(orderItemlist, model);		
 		model.addAttribute("page", page);
 		
