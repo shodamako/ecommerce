@@ -35,6 +35,10 @@ public class MakePaymentController {
 	@RequestMapping(value = "/")
 	public String list(Model model, @ModelAttribute("orderItemlist") ArrayList<OrderItem> orderItemList, 
 			@ModelAttribute("user") UserPage user) {
+		
+		if (user.getName() == null) {
+			return "forward:/loginUser/login";
+		}
 		MakePaymentPage makePaymentPage = makePaymentService.execute(orderItemList, user);
 		model.addAttribute("makePaymentPage", makePaymentPage);
 		return "/makePayment";
