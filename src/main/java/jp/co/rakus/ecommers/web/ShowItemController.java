@@ -53,6 +53,7 @@ public class ShowItemController {
 	public String findById(@PathVariable("itemId") Long id, Model model){
 		ShowItemPage item = showItemService.execute(id);
 		model.addAttribute("item", item);
+		
 		return "itemDetail";
 	}
 }

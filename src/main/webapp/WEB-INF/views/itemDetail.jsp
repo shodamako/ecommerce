@@ -53,6 +53,7 @@
 
 	<div id="selectQuantity" align="center">
 	<form:form modelAttribute="addCartForm" action="/addCart">
+	<form:errors path="quantity" cssStyle="color:red"/><br>
 	個数：<form:input path="quantity"/>
 	
 			<form:hidden path="itemId" value="${item.id}"/>
