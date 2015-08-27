@@ -1,0 +1,108 @@
+@CHARSET "UTF-8";
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	text-align: center;
+	margin: 0;
+}
+
+header {
+	height: 80px;
+}
+
+#linkHeader {
+	margin-left: 10px;
+	float: left;
+	height: 80px;
+}
+
+#userHeader {
+	margin-right: 10px;
+	float: right;
+	height: 80px;
+}
+
+.userHeaderContents {
+	float: right;
+	height: 80px;
+	width: 100px;
+}
+
+.menu {
+	cursor: pointer;
+	margin: 25px 0 0 0;
+	height: 30px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	z-index:0;
+}
+
+li {
+	margin-left: -45px;
+	list-style-type: none;
+}
+
+.menuList {
+	display: none;
+	z-index:1;
+	border: 1px solid gray;
+	border-radius: 5px;
+	background-color:white;
+}
+#main{
+	height: 100%;
+	width: 100%;
+}
+#search{
+	height: 100%;
+	width: 25%;
+	float:left;
+}
+.searchBlock{
+	height:30px;
+	width:29%;
+	margin:0 3px 0 3px;
+	float:left;
+	font-size:75%;
+	border:1px solid #000000;
+	border-radius:5px;
+}
+.msg {
+	color: red;
+}
+.table{
+	height: 100%;
+	width: 75%;
+	float:left;
+}
+.table table {
+	margin-left: auto;
+	margin-right: auto;
+	width:75%;
+}
+.editTable{
+	height: 100%;
+	width: 100%;
+	float:left;
+}
+.editTable table {
+	margin-left: auto;
+	margin-right: auto;
+	width:30%;
+}
+.cel {
+	border: 1px solid #000000;
+}
+.price{
+	text-align:right;
+}
+.hiddenBtn{
+	display:none;
+}
+#chkButton{
+	display:none;
+}

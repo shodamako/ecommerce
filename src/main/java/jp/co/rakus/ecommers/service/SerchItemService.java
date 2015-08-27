@@ -27,10 +27,10 @@ public class SerchItemService {
 		List<SerchItemChildPage> items = new ArrayList<>();
 		List<Item> allItems = new ArrayList<>();
 		if (!("").equals(form.getKeyWord()) && !(form.getKeyWord() == null)) {
-			allItems = itemRepository.findByKeyword(form.getKeyWord());
+			allItems = itemRepository.findByKeywordAndFalse(form.getKeyWord());
 		}
 		if (allItems.size() == 0) {
-			allItems = itemRepository.findAll();
+			allItems = itemRepository.findAllByFalse();
 		}
 		for (Item item : allItems) {
 			SerchItemChildPage child = new SerchItemChildPage(item.getId(), item.getName(), item.getPrice(), item.getImagePath());
@@ -45,7 +45,7 @@ public class SerchItemService {
 		if (("").equals(form.getKeyWord()) || form.getKeyWord() == null) {
 			return false;
 		} else {
-			allItems = itemRepository.findByKeyword(form.getKeyWord());
+			allItems = itemRepository.findByKeywordAndFalse(form.getKeyWord());
 		}
 		return allItems.size() == 0;
 	}
