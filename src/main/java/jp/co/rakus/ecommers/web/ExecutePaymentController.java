@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jp.co.rakus.ecommers.domain.OrderItem;
 import jp.co.rakus.ecommers.domain.User;
@@ -20,16 +21,11 @@ import jp.co.rakus.ecommers.service.ExecutePaymentService;
 @Controller
 @Transactional
 @RequestMapping(value = "/executePayment")
+@SessionAttributes({"orderItemlist", "user"})
 public class ExecutePaymentController {
 	
 	@Autowired
-	private ExecutePaymentService executePaymentService;
-	
-	@RequestMapping
-	public String test(){
-		return "tesut";
-	}
-	
+	private ExecutePaymentService executePaymentService;	
 	
 	/**
 	 * 注文情報を登録する.
@@ -38,7 +34,7 @@ public class ExecutePaymentController {
 	 * @return 決済完了画面
 	 */
 	@RequestMapping(value = "insert")
-	public String insert(@ModelAttribute("orderItemList") ArrayList<OrderItem> orderItem, @ModelAttribute("user") User user){
+	public String insert(@ModelAttribute("orderItemlist") ArrayList<OrderItem> orderItem, @ModelAttribute("user") UserPage user){
 		executePaymentService.insert(orderItem, user);
 		return "redirect:/executePayment/finished";
 	}
