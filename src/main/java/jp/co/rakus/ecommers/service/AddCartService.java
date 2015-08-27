@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jp.co.rakus.ecommers.domain.Item;
 import jp.co.rakus.ecommers.domain.OrderItem;
@@ -16,6 +18,7 @@ import jp.co.rakus.ecommers.web.AddCartForm;
  *
  */
 @Service
+@SessionAttributes("orderItemlist")
 public class AddCartService {
 	@Autowired
 	private AddCartRepository addCartRepository;
@@ -26,7 +29,7 @@ public class AddCartService {
 	 * @param orderItemList ショッピングカート内の商品リスト
 	 * @return 商品リスト
 	 */
-	public ArrayList<OrderItem> addCart(AddCartForm form, ArrayList<OrderItem> cartItemList) {
+	public ArrayList<OrderItem> addCart(Model model, AddCartForm form, ArrayList<OrderItem> cartItemList) {
 		Item item = addCartRepository.findbyId(form.getItemId());
 		OrderItem orderItem = new OrderItem();
 		orderItem.setItem(item);
@@ -34,6 +37,8 @@ public class AddCartService {
 		orderItem.setQuantity(form.getQuantity());
 		
 		cartItemList.add(orderItem);
+		
+		model.addAttribute("orderItemlist", cartItemList);
 		
 		return cartItemList;
 		
