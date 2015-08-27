@@ -56,7 +56,7 @@
             
         </table><br>
 
-    <div  align="center"><a href="makePayment.html">決済へ</a></div>
+    <div  align="center"><a href="/makePayment/">決済へ</a></div>
     
 
 
