@@ -13,12 +13,12 @@
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
 			<p>
-				<a href="viewShoppingCart.html">カートの中身を見る</a>
+				<a href="/cart">カートの中身を見る</a>
 			</p>
 		</div>
 		<div id="linkHeader" align="left">
 			<h1 align="left">
-				<a href="itemList.html"><img src="../img/rakus.jpg" width="50"
+				<a href="/serchItem/"><img src="../img/rakus.jpg" width="50"
 					height="50" alt="ロゴ画像">ＥＣサイトラクス</a>
 			</h1>
 			<div id="title" align="center"></div>
@@ -35,5 +35,6 @@
 		</form:form>
 		<a href="/registerUser">新規登録はこちら</a>
 	</div>
+
 </body>
 </html>
