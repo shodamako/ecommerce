@@ -14,7 +14,7 @@
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
 			<p>
-				<a href="/loginUser/login">ログイン</a>
+				<a href="/loginUser">ログイン</a>
 			</p>
 			<p>
 				<a href="/cart">カートの中身を見る</a>
@@ -28,8 +28,6 @@
 			<div id="title" align="center"></div>
 	</header>
 
-
-
 	<h2 align="center">商品一覧</h2>
 
 	<form:form modelAttribute="serchItemForm" action="/serchItem/"
@@ -38,28 +36,23 @@
 		<input type="submit" value="検索する">
 	</form:form>
 	<br>
-	<c:choose>
-		<c:when test="${serchItempage.childPage.size() != 0}">
-		<table border="1" align="center">
-				<tr>
-					<th colspan="2">商品名</th>
-					<th>価格</th>
-				</tr>
-				<c:forEach var="item" items="${serchItempage.childPage}">
-
-					<tr>
-						<td><a href="/showItem/findById/${item.id}" id="id" ><img src="../img/${item.imagePath}.jpg"
-								width="150" height="125" alt="商品画像"></a></td>
-						<td><a href="/showItem/findById/${item.id}" id="id"><c:out value="${item.name}"/></a></td>
-						<td><fmt:formatNumber value="${item.price}" pattern="###,###" />
-							円</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</c:when>
-		<c:otherwise>
-			該当商品はありません
-		</c:otherwise>
-	</c:choose>
+	<c:if test="${serchItempage.childPage.size() == 0}">
+		<h2 align="center">該当商品はありません。以下に商品リストを表示します。</h2>
+	</c:if>
+	<table border="1" align="center">
+		<tr>
+			<th colspan="2">商品名</th>
+			<th>価格</th>
+		</tr>
+		<c:forEach var="item" items="${serchItempage.childPage}">
+			<tr>
+			<td><a href="/showItem/findById/${item.id}" id="id" ><img src="../img/${item.imagePath}.jpg"
+					width="150" height="125" alt="商品画像"></a></td>
+			<td><a href="/showItem/findById/${item.id}" id="id"><c:out value="${item.name}"/></a></td>
+			<td><fmt:formatNumber value="${item.price}" pattern="###,###" />
+				円</td>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

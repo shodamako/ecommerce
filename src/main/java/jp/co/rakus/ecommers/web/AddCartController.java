@@ -43,8 +43,14 @@ public class AddCartController {
 		if(result.hasErrors()){
 			return "forward:/serchItem";
 		}
+<<<<<<< HEAD
 		ArrayList<OrderItem> orderItemList = addCartService.addCart(form, cartItemList);
 		model.addAttribute("orderItemlist", orderItemList);
+=======
+		System.out.println("varidation後");
+		addCartService.addCart(form, cartItemList);
+		model.addAttribute("orderItemlist", cartItemList);
+>>>>>>> 5a2a5d8b9aaa62dd14b7953ce21f660f7a09941f
 		return "forward:/serchItem/";
 	}
 }
