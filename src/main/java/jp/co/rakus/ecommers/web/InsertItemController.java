@@ -2,11 +2,14 @@ package jp.co.rakus.ecommers.web;
 
 import java.io.File;
 
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.embedded.MultipartConfigFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,6 +45,20 @@ public class InsertItemController {
 	public InsertItemForm setUpForm(){
 		return new InsertItemForm();
 	}
+	@Bean
+    public MultipartConfigElement multipartConfigElement() {
+        MultipartConfigFactory factory = new MultipartConfigFactory();
+        factory.setMaxFileSize(1000000 * 1024 * 1024);
+        factory.setMaxRequestSize(1000000 * 1024 * 1024);
+        return factory.createMultipartConfig();
+    }
+	/**
+	 * アップロードファイル容量制限.
+	 * @return
+	 */
+	private int FILE_CAPACITY_LIMIT() {
+		return 5120000;
+	}
 	/**
 	 * 商品追加画面.
 	 * @return 商品追加画面
@@ -71,12 +88,16 @@ public class InsertItemController {
 			Model model,
 			RedirectAttributes redirectAttributes
 			) throws Exception{
-		System.out.println(form.getFile().getSize());
 		if (result.hasErrors()) {
 			return "/AdminItem/insert";
 		}
 		if (form.getFile().isEmpty()) {
 			FieldError error = new FieldError("insertItemForm", "file", "ファイルを選択してください");
+			result.addError(error);
+			return "/AdminItem/insert";
+		}
+		if (form.getFile().getSize() >= FILE_CAPACITY_LIMIT()) {
+			FieldError error = new FieldError("editItemForm", "file", "画像ファイルは5120KB以下の画像を選択してください。");
 			result.addError(error);
 			return "/AdminItem/insert";
 		}
