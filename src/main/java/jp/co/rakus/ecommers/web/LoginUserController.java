@@ -22,10 +22,35 @@ public class LoginUserController {
 
 private LoginUserService loginUserService;
 
+<<<<<<< HEAD
 @ModelAttribute
 private LoginUserForm setUpForm(){
 	return new LoginUserForm();
 }
+=======
+	@RequestMapping
+	public String index() {
+		return "loginUser";
+	}
+
+	@RequestMapping(value = "/login")
+	public String login(@Validated LoginUserForm form, BindingResult result, RedirectAttributes redirectAttributes,
+			Model model) {
+		
+		if (result.hasErrors()) {
+			return index();
+		}
+			
+		UserPage user = loginUserService.execute(form, result, model);
+		
+		if (user == null) {
+			return index();
+		}
+		
+		model.addAttribute("user", user);
+		redirectAttributes.addFlashAttribute("user", user);
+		return "redirect:/serchItem/";
+>>>>>>> 592accf6a1182a7851789b4284cc0302712a42e3
 
 @RequestMapping
 public String index(){
