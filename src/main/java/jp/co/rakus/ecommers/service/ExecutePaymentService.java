@@ -6,6 +6,7 @@ import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import jp.co.rakus.ecommers.domain.Order;
 import jp.co.rakus.ecommers.domain.OrderItem;
@@ -29,7 +30,7 @@ public class ExecutePaymentService {
 		Integer month = cal.get(cal.MONTH ) + 1;
 		Integer day = cal.get(cal.DAY_OF_MONTH);
 		
-		orderNumber = 21;
+		orderNumber = 1;
 		DecimalFormat df1 = new DecimalFormat("000000");
 		
 		StringBuilder sb = new StringBuilder();
@@ -48,6 +49,7 @@ public class ExecutePaymentService {
 		order.setOrderItemList(orderItem);
 		
 		orderRepository.insertOrder(order);
-		orderRepository.insertOrderItem(orderItem);	
+		orderRepository.insertOrderItem(orderItem);
+		
 	}
 }

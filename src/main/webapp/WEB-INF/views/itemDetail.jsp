@@ -19,7 +19,7 @@
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
 			<p>
-				<a href="userLogin.html">ログイン</a>
+				<a href="/loginUser/login">ログイン</a>
 			</p>
 			<p>
 				<a href="/cart">カートの中身を見る</a>
@@ -27,7 +27,7 @@
 		</div>
 		<div id="linkHeader" align="left"></div>
 		<h1 align="left">
-			<a href="itemList.html"><img src="../../img/rakus.jpg" width="50"
+			<a href="/serchItem/"><img src="../../img/rakus.jpg" width="50"
 				height="50" alt="ロゴ画像">ＥＣサイトラクス</a>
 		</h1>
 		<div id="title" align="center"></div>
@@ -89,7 +89,7 @@
 
 	<div class="sendCart" align="center">
 		<p>
-			<a href="itemList.html">商品一覧画面へ戻る</a>
+			<a href="/serchItem/">商品一覧画面へ戻る</a>
 		</p>
 	</div>
 
