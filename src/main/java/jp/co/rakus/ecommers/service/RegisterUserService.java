@@ -48,8 +48,6 @@ public class RegisterUserService {
 
 				User user = new User();
 				BeanUtils.copyProperties(form, user);
-				System.out.println(form);
-				System.out.println(user);
 				User userForPage = registerUserRepository.save(user);
 				
 				UserPage page = new UserPage();

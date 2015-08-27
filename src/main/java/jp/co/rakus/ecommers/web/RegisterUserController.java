@@ -103,7 +103,6 @@ public class RegisterUserController {
 		
 		model.addAttribute("page", page);
 		redirectAttributes.addFlashAttribute("page", page);
-//		return "loginUser/login";
 		return "redirect:/loginUser/login";
 	}
 
