@@ -12,12 +12,12 @@
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
 			<p>
-				<a href="userLogin.html">ログイン</a>
+				<a href="/loginUser/login">ログイン</a>
 			</p>
 		</div>
 		<div id="linkHeader" align="left">
 			<h1 align="left">
-				<a href="itemList.html"><img src="../img/rakus.jpg" width="50"
+				<a href="/serchItem/"><img src="../img/rakus.jpg" width="50"
 					height="50" alt="ロゴ画像">ＥＣサイトラクス</a>
 			</h1>
 		</div>
@@ -39,11 +39,11 @@
             
             <c:forEach var="item" items="${page.orderItemList}">
             
-<!--             <tr>
+             <tr>
 				<td><a href="itemDetail.html"><img src="../img/pc.jpg" width="150"height="125" alt="商品画像"></a></td>
                 <td><a href="itemDetail.html"><c:out value="${item.item.name}"/></a></td>
                 <td>&yen;<c:out value="${item.item.price}"/></td>
-                <td><c:out value="${item.item.quantity}"/>個</td>
+                <td><c:out value="${item.quantity}"/>個</td>
                 <td>
                     <form action="viewShoppingCart.html" method="post">
                         <input type="hidden" name="item.id" value="1">
@@ -51,12 +51,12 @@
                     </form>
                 </td>
             </tr>
--->            
+  
             </c:forEach>
             
         </table><br>
 
-    <div  align="center"><a href="makePayment.html">決済へ</a></div>
+    <div  align="center"><a href="/makePayment/">決済へ</a></div>
     
 
 
