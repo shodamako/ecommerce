@@ -25,6 +25,12 @@ public class ExecutePaymentController {
 	@Autowired
 	private ExecutePaymentService executePaymentService;
 	
+	@RequestMapping
+	public String test(){
+		return "tesut";
+	}
+	
+	
 	/**
 	 * 注文情報を登録する.
 	 * @param orderItem 注文商品情報
