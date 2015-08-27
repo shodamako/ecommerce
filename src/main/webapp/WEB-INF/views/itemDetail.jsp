@@ -1,10 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%-- 
-<<<<<<< HEAD
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-=======
---%>
+
+<%@taglib uri="http://www.springframework.org/tags/form"  prefix="form" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
@@ -54,18 +52,15 @@
 	<br>
 
 	<div id="selectQuantity" align="center">
-<%--
- <<<<<<< HEAD
 	<form:form modelAttribute="addCartForm" action="/addCart">
-	個数：<form:input path="quantity"/><form:errors path="quantity"/>
-	</div>
+	個数：<form:input path="quantity"/>
+	
 			<form:hidden path="itemId" value="${item.id}"/>
 		<div class="sendCart" align="center"><p><input type="submit" value="カートに入れる"></p></div>
-	</form:form>
-
+	
+</form:form>
 		<div class="sendCart" align="center"><p><a href="itemList.html">商品一覧画面へ戻る</a></p></div>
-=======
---%>
+<%-- 
 		<form action="/addCart" method="post">
 
 			個数：<select name="quantity">
@@ -85,12 +80,14 @@
 				</p>
 			</div>
 		</form>
+
 	</div>
 
 	<div class="sendCart" align="center">
 		<p>
 			<a href="/serchItem/">商品一覧画面へ戻る</a>
 		</p>
+		--%>
 	</div>
 
 </body>

@@ -39,8 +39,8 @@ public class AddCartRepository {
 	 * @param id ショッピングカートに追加する商品ID
 	 * @return 商品情報
 	 */
-	public Item findbyId(Long itemId) {
-		SqlParameterSource param = new MapSqlParameterSource().addValue("id", itemId);
+	public Item findbyId(Long id) {
+		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		Item item = jdbcTemplate.queryForObject(
 				"select id, name, description, price, imagePath, deleted from items where id =:id", param,
 				ITEM_ROW_MAPPER);
