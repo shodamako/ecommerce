@@ -36,7 +36,7 @@
 		<input type="submit" value="検索する">
 	</form:form>
 	<br>
-	<c:if test="${serchItempage.childPage.size() == 0}">
+	<c:if test="${zero}">
 		<h2 align="center">該当商品はありません。以下に商品リストを表示します。</h2>
 	</c:if>
 	<table border="1" align="center">
