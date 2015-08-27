@@ -28,8 +28,6 @@
 			<div id="title" align="center"></div>
 	</header>
 
-
-
 	<h2 align="center">商品一覧</h2>
 
 	<form:form modelAttribute="serchItemForm" action="/serchItem/"
