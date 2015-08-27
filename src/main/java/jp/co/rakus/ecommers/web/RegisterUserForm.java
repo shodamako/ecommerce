@@ -8,22 +8,22 @@ import lombok.Data;
 @Data
 public class RegisterUserForm {
 	/**ユーザ名*/
-	@NotBlank
+	@NotBlank(message="お名前を入力してください")
 	private String name;
 	/**ユーザメールアドレス*/
-	@NotBlank
+	@NotBlank(message="アドレスを入力してください")
 	@Email(message="アドレスが不正です")
 	private String email;
 	/**ユーザパスワード*/
-	@NotBlank
+	@NotBlank(message="パスワードを入力してください")
 	private String password;
 	/**ユーザ再パスワード*/
-	@NotBlank
+	@NotBlank(message="確認用パスワードを入力してください")
 	private String confirmPassword;
 	/**ユーザ住所*/
-	@NotBlank
+	@NotBlank(message="住所を入力してください")
 	private String address;
 	/**ユーザ電話番号*/
-	@NotBlank
+	@NotBlank(message="電話番号を入力してください")
 	private String telephone;
 }

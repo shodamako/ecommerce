@@ -9,35 +9,35 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jp.co.rakus.ecommers.domain.OrderItem;
-import jp.co.rakus.ecommers.service.ViewShoppingCartService;
+import jp.co.rakus.ecommers.service.DeleteCartItemService;
 
 /**
- * ショッピングカート表示のコントローラークラス.
+ * カート商品削除のコントローラークラス.
  * @author ShoKodama
  *
  */
 @Controller
 @Transactional
-@RequestMapping("/cart")
+@RequestMapping("/deleteCartItem")
 @SessionAttributes("orderItemList")
-public class ViewShoppingCartController {
+public class DeleteCartItemController {
 	
 	@Autowired
-	ViewShoppingCartService viewShoppingService;
-		
-	/**
-	 * @param orderItemlist
-	 * @param model
-	 * @return
-	 */
+	private DeleteCartItemService deleteCartItemService;
+	
 	@RequestMapping
-	public String showCart(@ModelAttribute("orderItemlist")ArrayList<OrderItem> orderItemlist, Model model){
+	public String delete(@ModelAttribute("orderItemList")ArrayList<OrderItem> orderItemList, 
+			Long itemId,
+			RedirectAttributes redirectattributes,
+			Model model){
+					
+		deleteCartItemService.execute(orderItemList, itemId, model);
 		
-		ViewShoppingCartPage page = viewShoppingService.showCart(orderItemlist, model);		
-		model.addAttribute("page", page);
+		return "redirect:/cart";
 		
-		return "/viewShoppingCart";
 	}
+	
 }

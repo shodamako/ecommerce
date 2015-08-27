@@ -106,25 +106,52 @@
 		<h1>新規利用者登録画面</h1>
 		<br> <br> お客様の情報を入力し、「お客様情報を登録する」ボタンをクリックしてください。 <br> <br>
 		
-		<form:form modelAttribute="RegisterUserForm" action="/registerUser/create" method="post" >
+		<form:form modelAttribute="registerUserForm" enctype="multipart/form-data"
+			action="/registerUser/create" method="post">
 			<br>
-				<form:errors path="name"/>
-				<form:errors path="email"/>
-				<form:errors path="address"/>
-				<form:errors path="telephone"/>
-				<form:errors path="password"/>
-				<form:errors path="confirmPassword"/>
-			<table border="">
-				<tr>
-					<td><p id="nameId" style="display: none; color: red;">
-							名前を入力して下さい</p> 名前</td>
-					<td><input type="text" name="name"></td>
 
+			<table border="">
+			
+				<tr>
+					<td>名前</td><form:errors path="name" />
+					<td><form:input path="name"/></td>		
 				</tr>
 				<tr>
-					<td><p id="emailId" style="display: none; color: red;">アドレスを入力して下さい</p>
-						<p id="emailId2" style="display: none; color: red;">アドレスが不正です</p>
-						メールアドレス</td>
+					<td>メールアドレス</td><form:errors path="email" />
+					<td><form:input path="email"/></td>		
+				</tr>
+				<tr>
+					<td>住所</td><form:errors path="address" />
+					<td><form:input path="address"/></td>		
+				</tr>
+				<tr>
+					<td>電話番号</td><form:errors path="telephone" />
+					<td><form:input path="telephone"/></td>		
+				</tr>
+				<tr>
+					<td>パスワード</td><form:errors path="password" />
+					<td><form:input path="password"/></td>		
+				</tr>
+				<tr>
+					<td>確認用パスワード</td><form:errors path="confirmPassword" />
+					<td><form:input path="confirmPassword"/></td>		
+				</tr>
+				
+			</table>
+
+			<br>
+			<br>
+			<input type="submit" value="お客様情報を登録する">
+			<input type="reset" value="入力内容をクリアする">
+
+		</form:form>
+				
+				
+				
+				
+<!--  				<tr>
+	
+
 					<td><input type="text" name="email"></td>
 
 				</tr>
@@ -148,18 +175,16 @@
 				</tr>
 				<tr>
 					<td><p id="confirmPasswordId"
-							style="display: none; color: red;">確認用パスワードを入力して下さい</p>
-						<br> 確認用パスワード<br> <font color="red"><small>設定したパスワードを再度入力してください</small></font>
+							style="display: none; color: red;">確認用パスワードを入力して下さい</p> <br>
+						確認用パスワード<br> <font color="red"><small>設定したパスワードを再度入力してください</small></font>
 					</td>
 					<td><input type="password" name="confirmPassword"></td>
 
 				</tr>
-			</table>
+				
+				-->
 
-			<br> <br>
-			<input type="submit" value="お客様情報を登録する">
-			<input type="reset" value="入力内容をクリアする">	
+	</div>
 
-		</form:form>
 </body>
 </html>
