@@ -163,8 +163,11 @@
 			<input type="reset" value="入力内容をクリアする">
 
 		</form:form>
+<<<<<<< HEAD
 
 	</div>
 
+=======
+>>>>>>> 184450995d3ee5e52edf77993a1ef0cd5852c6b4
 </body>
 </html>

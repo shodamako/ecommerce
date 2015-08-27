@@ -73,8 +73,7 @@ public class ItemRepository {
 		SqlParameterSource param = new MapSqlParameterSource().addValue("word", word);
 		List<Item> items = new ArrayList<>();
 		List<Item> allItems = jdbcTemplate.query(
-				//"SELECT id, name, description, price, imagePath, deleted FROM items WHERE name LIKE %:word% ORDER BY id DESC", 
-				"SELECT id, name, description, price, imagePath, deleted FROM items WHERE name=:word ORDER BY id DESC", 
+				"SELECT id, name, description, price, imagePath, deleted FROM items WHERE name LIKE '%' || :word || '%' ORDER BY id DESC", 
 				param, 
 				ITEM_ROW_MAPPER);
 		for (Item item : allItems) {

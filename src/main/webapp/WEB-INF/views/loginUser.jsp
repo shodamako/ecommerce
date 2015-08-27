@@ -13,7 +13,7 @@
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
 			<p>
-				<a href="viewShoppingCart.html">カートの中身を見る</a>
+				<a href="/cart">カートの中身を見る</a>
 			</p>
 		</div>
 		<div id="linkHeader" align="left">
@@ -35,5 +35,6 @@
 		</form:form>
 		<a href="/registerUser">新規登録はこちら</a>
 	</div>
+
 </body>
 </html>
