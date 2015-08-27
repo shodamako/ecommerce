@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jp.co.rakus.ecommers.domain.OrderItem;
 import jp.co.rakus.ecommers.service.MakePaymentService;
@@ -20,6 +21,7 @@ import jp.co.rakus.ecommers.service.MakePaymentService;
 @Controller
 @RequestMapping("/makePayment")
 @Transactional
+@SessionAttributes({"orderItemlist", "user"})
 public class MakePaymentController {
 	
 	@Autowired
@@ -31,7 +33,7 @@ public class MakePaymentController {
 	 * @return　
 	 */
 	@RequestMapping(value = "/")
-	public String list(Model model, @ModelAttribute("orderItemList") ArrayList<OrderItem> orderItemList, 
+	public String list(Model model, @ModelAttribute("orderItemlist") ArrayList<OrderItem> orderItemList, 
 			@ModelAttribute("user") UserPage user) {
 		MakePaymentPage makePaymentPage = makePaymentService.execute(orderItemList, user);
 		model.addAttribute("makePaymentPage", makePaymentPage);

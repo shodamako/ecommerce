@@ -33,16 +33,9 @@ public class AddCartService {
 		orderItem.setItemId(form.getItemId());
 		orderItem.setQuantity(form.getQuantity());
 		
+		cartItemList.add(orderItem);
 		
-		ArrayList<OrderItem> orderItemList = null;
-		if(cartItemList == null){
-			cartItemList = new ArrayList<OrderItem>();
-			}else{
-				orderItemList = cartItemList;
-			}
-		orderItemList.add(orderItem);
-		
-		return orderItemList;
+		return cartItemList;
 		
 	}
 }

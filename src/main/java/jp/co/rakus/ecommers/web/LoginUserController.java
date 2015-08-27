@@ -52,7 +52,7 @@ public class LoginUserController {
 			return index();
 		}
 		
-		model.addAttribute("user");
+		model.addAttribute("user", user);
 		redirectAttributes.addFlashAttribute("user", user);
 		return "redirect:/serchItem/";
 
