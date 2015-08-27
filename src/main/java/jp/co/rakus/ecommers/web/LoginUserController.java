@@ -9,10 +9,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
-=======
 import org.springframework.web.bind.annotation.SessionAttributes;
->>>>>>> 3dedab9827fe416734b51d2dc4595c8c2a030ad7
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jp.co.rakus.ecommers.service.LoginUserService;
@@ -31,9 +28,6 @@ public class LoginUserController {
 	@Autowired
 	private LoginUserService loginUserService;
 
-<<<<<<< HEAD
-	private LoginUserService loginUserService;
-
 	@ModelAttribute
 	private LoginUserForm setUpForm() {
 		return new LoginUserForm();
@@ -42,11 +36,6 @@ public class LoginUserController {
 	@RequestMapping
 	public String index() {
 		return "loginUser";
-=======
-	@ModelAttribute
-	private LoginUserForm setUpForm() {
-		return new LoginUserForm();
->>>>>>> 3dedab9827fe416734b51d2dc4595c8c2a030ad7
 	}
 
 	@RequestMapping(value = "/login")
@@ -74,15 +63,5 @@ public class LoginUserController {
 		model.addAttribute("user", user);
 		redirectAttributes.addFlashAttribute("user", user);
 		return "redirect:/serchItem/";
-<<<<<<< HEAD
 	}
-=======
-	}
-
-	@RequestMapping
-	public String index() {
-		return "loginUser";
-	}
-
->>>>>>> 3dedab9827fe416734b51d2dc4595c8c2a030ad7
 }
