@@ -12,7 +12,7 @@
 		<div id="userHeader" align="right">
 			<p>こんにちはゲストさん</p>
 			<p>
-				<a href="/loginUser/login">ログイン</a>
+				<a href="/loginUser">ログイン</a>
 			</p>
 		</div>
 		<div id="linkHeader" align="left">
@@ -39,11 +39,11 @@
             
             <c:forEach var="item" items="${page.orderItemList}">
             
-<!--             <tr>
+             <tr>
 				<td><a href="itemDetail.html"><img src="../img/pc.jpg" width="150"height="125" alt="商品画像"></a></td>
                 <td><a href="itemDetail.html"><c:out value="${item.item.name}"/></a></td>
                 <td>&yen;<c:out value="${item.item.price}"/></td>
-                <td><c:out value="${item.item.quantity}"/>個</td>
+                <td><c:out value="${item.quantity}"/>個</td>
                 <td>
                     <form action="viewShoppingCart.html" method="post">
                         <input type="hidden" name="item.id" value="1">
@@ -51,7 +51,7 @@
                     </form>
                 </td>
             </tr>
--->            
+  
             </c:forEach>
             
         </table><br>

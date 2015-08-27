@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jp.co.rakus.ecommers.domain.OrderItem;
 import jp.co.rakus.ecommers.service.AddCartService;
@@ -23,20 +24,12 @@ import jp.co.rakus.ecommers.service.AddCartService;
 @Controller
 @Transactional
 @RequestMapping("/addCart")
-//@SessionAttributes(types={UserPage.class, ArrayList.class})
+@SessionAttributes("orderItemlist")
 public class AddCartController {
 
 	@Autowired
 	private AddCartService addCartService;
 	
-	/**
-	 * フォームの初期化.
-	 * @return
-	 */
-	@ModelAttribute
-	private AddCartForm setUpForm(){
-		return new AddCartForm();
-	}
 	/**
 	 * ショッピングカートへ商品を追加するメソッド.
 	 * @param form リクエスト
@@ -44,14 +37,19 @@ public class AddCartController {
 	 * @param orderItemList セッションスコープに入れてあるショッピングカート内の商品一覧
 	 * @return 商品一覧ページ
 	 */
-	@RequestMapping
+	
+	@RequestMapping()
 	public String addCart(@Validated AddCartForm form,BindingResult result, Model model, @ModelAttribute("orderItemList") ArrayList<OrderItem> cartItemList){
 		if(result.hasErrors()){
-			return "/serchItem";
+			return "forward:/serchItem";
 		}
-		ArrayList<OrderItem> orderItemList = addCartService.addCart(form, cartItemList);
-		model.addAttribute("orderItemList", orderItemList);
-		return "/serchItem";
+//<<<<<<< HEAD
+//		ArrayList<OrderItem> orderItemList = addCartService.addCart(form, cartItemList);
+//		model.addAttribute("orderItemlist", orderItemList);
+//=======
+		addCartService.addCart(form, cartItemList);
+		model.addAttribute("orderItemlist", cartItemList);
+//>>>>>>> 5a2a5d8b9aaa62dd14b7953ce21f660f7a09941f
+		return "forward:/serchItem/";
 	}
-	
 }

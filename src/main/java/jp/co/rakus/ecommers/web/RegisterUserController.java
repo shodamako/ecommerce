@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -52,20 +53,20 @@ public class RegisterUserController {
 	 * @param model　モデル
 	 */
 	@RequestMapping("/create")
-	public String create(RegisterUserForm form,
+	public String create(@Validated RegisterUserForm form,
 			BindingResult result, 
 			RedirectAttributes redirectAttributes,
 			Model model){
 		
 		/** 入力値チェック */
-		System.out.println("入力値チェック");
+		
 		if(result.hasErrors()){
-			FieldError error = new FieldError("nameError", "name", "お名前を入力してください");
-			FieldError error2 = new FieldError("emailError", "email", "アドレスを入力してください");
-			FieldError error3 = new FieldError("passwordError", "password", "パスワードを入力してください");
-			FieldError error4 = new FieldError("confirmPasswordError", "confirmPassword", "確認用パスワードを入力してください");
-			FieldError error5 = new FieldError("addressError", "address", "住所を入力してください");
-			FieldError error6 = new FieldError("telephoneError", "telephone", "電話番号を入力してください");
+			FieldError error = new FieldError("nameError", "name", "");
+			FieldError error2 = new FieldError("emailError", "email", "");
+			FieldError error3 = new FieldError("passwordError", "password", "");
+			FieldError error4 = new FieldError("confirmPasswordError", "confirmPassword", "");
+			FieldError error5 = new FieldError("addressError", "address", "");
+			FieldError error6 = new FieldError("telephoneError", "telephone", "");
 			result.addError(error);
 			result.addError(error2);
 			result.addError(error3);
@@ -97,16 +98,12 @@ public class RegisterUserController {
 		}
 		
 		/** 登録 */
-		/** 新海さんのと結合後にreturn指定！！！ */
-
-		System.out.println(form);
 		
 		UserPage page = registerUserService.execute(form, result, model);
 		
 		model.addAttribute("page", page);
 		redirectAttributes.addFlashAttribute("page", page);
-		System.out.println("登録完了");
-		return input();
+		return "redirect:/loginUser/login";
 	}
 
 }
