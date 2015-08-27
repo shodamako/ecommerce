@@ -23,7 +23,7 @@ public class DeleteCartItemService {
 	 */
 	public void execute(ArrayList<OrderItem> orderItemlist, Long itemId, Model model){
 				
-		for(int i = 0; i > orderItemlist.size(); i++){
+		for(int i = 0; i < orderItemlist.size(); i++){
 			
 			OrderItem orderItem = orderItemlist.get(i);
 			Long checkId = orderItem.getItemId();		
