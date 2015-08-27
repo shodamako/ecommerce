@@ -26,10 +26,11 @@ public class SerchItemService {
 		SerchItemPage page = new SerchItemPage();
 		List<SerchItemChildPage> items = new ArrayList<>();
 		List<Item> allItems = new ArrayList<>();
-		if (("").equals(form.getKeyWord()) || form.getKeyWord() == null) {
-			allItems = itemRepository.findAll();
-		} else {
+		if (!("").equals(form.getKeyWord()) && !(form.getKeyWord() == null)) {
 			allItems = itemRepository.findByKeyword(form.getKeyWord());
+		}
+		if (allItems.size() == 0) {
+			allItems = itemRepository.findAll();
 		}
 		for (Item item : allItems) {
 			SerchItemChildPage child = new SerchItemChildPage(item.getId(), item.getName(), item.getPrice(), item.getImagePath());
@@ -37,6 +38,16 @@ public class SerchItemService {
 		}
 		page.setChildPage(items);
 		return page;
+	}
+	
+	public boolean isNotExsitKeyWord(SerchItemForm form) {
+		List<Item> allItems = new ArrayList<>();
+		if (("").equals(form.getKeyWord()) || form.getKeyWord() == null) {
+			return false;
+		} else {
+			allItems = itemRepository.findByKeyword(form.getKeyWord());
+		}
+		return allItems.size() == 0;
 	}
 
 }
