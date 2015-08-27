@@ -13,7 +13,7 @@ import jp.co.rakus.ecommers.web.UserPage;
 
 @Service
 public class MakePaymentService {
-	public static final double TAX_RATE = 1.08;
+	public static final double TAX_RATE = 0.08;
 	/**
 	 * キーワードにあてはまるアイテムを取得
 	 * @param form　検索フォーム
@@ -32,9 +32,9 @@ public class MakePaymentService {
 			mpcp.setName(item.getName());
 			mpcp.setPrice(item.getPrice());
 			mpcp.setQuantity(order.getQuantity());
-			Integer taxPrice = (int)(item.getPrice() * order.getQuantity() * TAX_RATE);
+			Integer taxPrice = (int)(item.getPrice() * order.getQuantity() * (1 + TAX_RATE));
 			mpcp.setTaxPrice(taxPrice);
-			tax += (int)(order.getQuantity() * TAX_RATE);
+			tax += (int)(item.getPrice() * order.getQuantity() * TAX_RATE);
 			totalPrice += taxPrice;
 			mpcp.setSumPrice(item.getPrice() * order.getQuantity());
 			
