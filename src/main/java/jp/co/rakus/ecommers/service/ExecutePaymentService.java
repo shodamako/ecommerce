@@ -31,18 +31,21 @@ public class ExecutePaymentService {
 	public void insert(ArrayList<OrderItem> orderItem, UserPage user){
 		Calendar cal = Calendar.getInstance();
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		SimpleDateFormat orderSDF = new SimpleDateFormat("yyyyMMdd");
+		Date orderNumber = cal.getTime();
+		
+//		SimpleDateFormat dateSDF = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = cal.getTime();
-				
 		int total = 0;
 		for(OrderItem items : orderItem){
 			total += items.getItem().getPrice() * items.getQuantity() * 1.08;
 		}
+		
 		Order order = new Order();
 		order.setUserId(user.getId());
 		order.setStatus(1);
-		order.setOrderNumber(sdf.format(date));
-		
+		order.setOrderNumber(orderSDF.format(orderNumber));
+		order.setDate(date);
 		order.setTotalPrice(total);
 		order.setOrderItemList(orderItem);
 		
