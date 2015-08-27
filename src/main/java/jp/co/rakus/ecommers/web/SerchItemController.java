@@ -42,6 +42,9 @@ public class SerchItemController {
 	public String list(SerchItemForm form, Model model) {
 		SerchItemPage serchItempage = serchItemService.execute(form);
 		model.addAttribute("serchItempage", serchItempage);
+		Boolean zero = serchItemService.isNotExsitKeyWord(form);
+		model.addAttribute("zero", zero);
+		
 		return "/itemList";
 	}
 

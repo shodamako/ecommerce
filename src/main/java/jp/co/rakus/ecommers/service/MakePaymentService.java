@@ -43,7 +43,7 @@ public class MakePaymentService {
 		
 		page.setChildPage(mpcpList);
 		page.setTax(tax);
-		page.setTotalPrice(totalPrice);
+		page.setTotalPrice(totalPrice + page.getPortCost());
 		
 		page.setName(user.getName());
 		page.setEmail(user.getEmail());

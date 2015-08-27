@@ -39,6 +39,7 @@ public class AddCartController {
 	 */
 	
 	@RequestMapping()
+<<<<<<< HEAD
 	public String addCart(@Validated AddCartForm form,BindingResult result, Model model, @ModelAttribute("orderItemList") ArrayList<OrderItem> cartItemList){
 		System.out.println("varidation前");
 		if(result.hasErrors()){
@@ -47,6 +48,14 @@ public class AddCartController {
 		System.out.println("varidation後");
 		ArrayList<OrderItem> orderItemList = addCartService.addCart(form, cartItemList);
 		model.addAttribute("orderItemlist", orderItemList);
+=======
+	public String addCart(@Validated AddCartForm form,BindingResult result, Model model, @ModelAttribute("orderItemlist") ArrayList<OrderItem> cartItemList){
+		if(result.hasErrors()){
+			return "forward:/serchItem";
+		}
+		addCartService.addCart(model, form, cartItemList);
+		model.addAttribute("orderItemlist", cartItemList);
+>>>>>>> 063954f290f52b3546bb0da809ccd30d417d9889
 		return "forward:/serchItem/";
 	}
 }
