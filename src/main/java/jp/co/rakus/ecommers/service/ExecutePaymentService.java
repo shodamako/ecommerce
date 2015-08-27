@@ -30,14 +30,10 @@ public class ExecutePaymentService {
 	 */
 	public void insert(ArrayList<OrderItem> orderItem, User user){
 		Calendar cal = Calendar.getInstance();
-		Integer year = cal.get(cal.YEAR);
-		Integer month = cal.get(cal.MONTH ) + 1;
-		Integer day = cal.get(cal.DAY_OF_MONTH);
 
-		
-		StringBuilder sb = new StringBuilder();
-		sb.append(year).append(month).append(day);
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		Date date = cal.getTime();
+				
 		int total = 0;
 		for(OrderItem items : orderItem){
 			total += items.getItem().getPrice() * items.getQuantity() * 1.08;
@@ -46,7 +42,7 @@ public class ExecutePaymentService {
 		order.setUserId((long)2);
 		order.setUserId((long)2);
 		order.setStatus(1);
-		order.setOrderNumber(sb.toString());
+		order.setOrderNumber(sdf.format(date));
 		order.setTotalPrice(total);
 		order.setOrderItemList(orderItem);
 		

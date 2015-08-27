@@ -24,7 +24,7 @@ public class OrderRepository {
 	 */
 	public void insertOrder(Order order){
 		SqlParameterSource param = new BeanPropertySqlParameterSource(order);
-		jdbcTemplate.update("INSERT INTO orders(order_number, user_id, status, total_price) values(:orderNumber || to_char(nextval('order_number_count'), '000000'), :userId, :status, :totalPrice)", param);
+		jdbcTemplate.update("INSERT INTO orders(order_number, user_id, status, total_price) values(:orderNumber || to_char(nextval('order_number_count'),'000000'), :userId, :status, :totalPrice)", param);
 	}
 	
 	/**
