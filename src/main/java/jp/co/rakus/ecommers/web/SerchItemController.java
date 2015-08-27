@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jp.co.rakus.ecommers.service.SerchItemService;
 
@@ -17,6 +18,7 @@ import jp.co.rakus.ecommers.service.SerchItemService;
 @Controller
 @RequestMapping("/serchItem")
 @Transactional
+@SessionAttributes("orderItemlist")
 public class SerchItemController {
 	
 	@Autowired
