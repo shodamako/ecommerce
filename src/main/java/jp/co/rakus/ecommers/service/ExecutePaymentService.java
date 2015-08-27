@@ -38,6 +38,7 @@ public class ExecutePaymentService {
 		for(OrderItem items : orderItem){
 			total += items.getItem().getPrice() * items.getQuantity() * 1.08;
 		}
+		
 		Order order = new Order();
 		order.setUserId(user.getId());
 		order.setStatus(1);
