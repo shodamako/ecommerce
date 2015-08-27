@@ -14,7 +14,7 @@ import jp.co.rakus.ecommers.domain.OrderItem;
  *
  */
 @Service
-@SessionAttributes("orderItemList")
+@SessionAttributes("orderItemlist")
 public class DeleteCartItemService {
 	
 	/**
@@ -23,7 +23,7 @@ public class DeleteCartItemService {
 	 */
 	public void execute(ArrayList<OrderItem> orderItemList, Long itemId, Model model){
 				
-		for(int i = 0; i > orderItemList.size(); i++){
+		for(int i = 0; i < orderItemList.size(); i++){
 			
 			OrderItem orderItem = orderItemList.get(i);
 			Long checkId = orderItem.getItemId();		
@@ -34,6 +34,6 @@ public class DeleteCartItemService {
 			}
 		}
 		
-		model.addAttribute("orderItemList", orderItemList);
+		model.addAttribute("orderItemlist", orderItemList);
 	}
 }

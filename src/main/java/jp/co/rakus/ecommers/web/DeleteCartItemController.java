@@ -23,14 +23,14 @@ import jp.co.rakus.ecommers.service.DeleteCartItemService;
 @Controller
 @Transactional
 @RequestMapping("/deleteCartItem")
-@SessionAttributes("orderItemList")
+@SessionAttributes("orderItemlist")
 public class DeleteCartItemController {
 	
 	@Autowired
 	private DeleteCartItemService deleteCartItemService;
 	
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public String delete(@ModelAttribute("orderItemList")ArrayList<OrderItem> orderItemList, 
+	public String delete(@ModelAttribute("orderItemlist")ArrayList<OrderItem> orderItemList, 
 			Long itemId,
 			RedirectAttributes redirectattributes,
 			Model model){
