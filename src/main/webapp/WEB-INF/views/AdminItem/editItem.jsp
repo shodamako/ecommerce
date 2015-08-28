@@ -42,7 +42,7 @@
 					<ul>
 						<li><a href="/Admin/showMenu">メニュー</a></li>
 						<li><a href="/Admin/Item">商品管理</a></li>
-						<li><a href="">注文一覧</a></li>
+						<li><a href="/Admin/orderList">注文一覧</a></li>
 						<li><a href="/Admin/logout">ログアウト</a></li>
 					</ul>
 				</div>
