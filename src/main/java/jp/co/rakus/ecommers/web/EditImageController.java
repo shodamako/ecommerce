@@ -90,19 +90,27 @@ public class EditImageController {
 		}
 		//エラーチェック
 		if (editItemForm.getImage().isEmpty()) {
-			FieldError error = new FieldError("editItemForm", "image", "ファイルを選択してください");
+			FieldError error = new FieldError("editItemForm", "image", "ファイルを選択してください。");
 			result.addError(error);
 			model.addAttribute("editItemForm", editItemForm);
 			return "/AdminItem/editItem";
 		}
-		//アップロードファイル容量制限チェック
+		//アップロードファイル容量チェック
 		if (editItemForm.getImage().getSize() >= FILE_CAPACITY_LIMIT()) {
-			FieldError error = new FieldError("editItemForm", "image", "画像ファイルは5120KB以下の画像を選択してください。");
+			FieldError error = new FieldError("editItemForm", "image", "画像ファイルは5,120KB以下の画像を選択してください。");
 			result.addError(error);
 			model.addAttribute("editItemForm", editItemForm);
 			return "/AdminItem/editItem";
 		}
-
+		//ファイル拡張子チェック
+		if (!(editItemForm.getImage().getOriginalFilename().endsWith(".jpeg")) && !(editItemForm.getImage().getOriginalFilename().endsWith(".jpg"))) {
+			FieldError error = new FieldError("editItemForm", "image", "jpegファイルを指定してください。");
+			result.addError(error);
+			model.addAttribute("editItemForm", editItemForm);
+			return "/AdminItem/editItem";
+		}
+		
+		
 		Long id = editItemForm.getId();
 		String imagePath = editItemForm.getImage().getOriginalFilename();
 		editItemForm.getImage().transferTo(new File(context.getRealPath("/img/") + imagePath));
