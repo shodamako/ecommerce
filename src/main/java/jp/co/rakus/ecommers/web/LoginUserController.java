@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,10 +70,14 @@ public class LoginUserController {
 		UserPage user = loginUserService.execute(form, result, model);
 
 		if (user == null) {
-			FieldError error = new FieldError("emailError", "email", "");
-			FieldError error2 = new FieldError("passwordError", "password", "");
+//			FieldError error = new FieldError("emailError", "email", "");
+//			FieldError error2 = new FieldError("passwordError", "password", "");
+//			result.addError(error);
+//			result.addError(error2);
+			
+			ObjectError error = new ObjectError("loginError", "メールアドレスまたはパスワードが違います。");
 			result.addError(error);
-			result.addError(error2);
+			
 			return index();
 		}
 		

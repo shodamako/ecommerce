@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
+import jp.co.rakus.ecommers.domain.Item;
 import jp.co.rakus.ecommers.service.ShowItemService;
 
 /**
@@ -17,7 +17,6 @@ import jp.co.rakus.ecommers.service.ShowItemService;
  */
 @Controller
 @RequestMapping(value= "/showItem")
-@SessionAttributes("page")
 public class ShowItemController {
 	@Autowired
 	private ShowItemService showItemService;
@@ -44,8 +43,13 @@ public class ShowItemController {
 	@RequestMapping(value = "/findById/{itemId}")
 	public String findById(@PathVariable("itemId") Long id, Model model){
 		ShowItemPage item = showItemService.execute(id);
+		if (item == null) {
+			System.out.println(1);
+			String error = "商品情報が見つかりませんでした";
+			model.addAttribute("errorMessage",error);
+			return list();
+		}
 		model.addAttribute("item", item);
-		
 		return "itemDetail";
 	}
 }

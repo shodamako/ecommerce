@@ -48,6 +48,6 @@ public class AddCartController {
 		}
 		addCartService.addCart(model, form, cartItemList);
 		model.addAttribute("orderItemlist", cartItemList);
-		return "forward:/serchItem/";
+		return "redirect:/serchItem/";
 	}
 }

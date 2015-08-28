@@ -104,6 +104,11 @@ public class InsertItemController {
 			return "/AdminItem/insert";
 		}
 		MultipartFile multipartFile = form.getFile();
+		if(!multipartFile.getOriginalFilename().endsWith(".jpg") && !multipartFile.getOriginalFilename().endsWith(".jpeg")){
+			FieldError error = new FieldError("editItemForm", "file", "画像ファイルの拡張子は.jpgまたは.jpegにしてください");
+			result.addError(error);
+			return "/AdminItem/insert";
+		}
 		try {
 			Integer price = new Integer(form.getPrice());
 			if (price < 1 || price > 500000) {

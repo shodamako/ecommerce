@@ -17,7 +17,7 @@ import jp.co.rakus.ecommers.domain.OrderItem;
  *
  */
 @Controller
-@RequestMapping("/Top")
+@RequestMapping("/")
 @Transactional
 @SessionAttributes({"orderItemlist", "user"})
 public class FirstPageController {
@@ -29,6 +29,7 @@ public class FirstPageController {
 	public String list(SerchItemForm form, Model model) {
 		ArrayList<OrderItem> orderItemList = new ArrayList<>();
 		UserPage user = new UserPage();
+		user.setName("ゲスト");
 		model.addAttribute("orderItemlist", orderItemList);
 		model.addAttribute("user", user);
 		return "forward:/serchItem/";
