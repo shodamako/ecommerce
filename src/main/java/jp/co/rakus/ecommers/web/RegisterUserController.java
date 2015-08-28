@@ -65,6 +65,14 @@ public class RegisterUserController {
 			return input();
 		}
 		
+//		/** 電話番号入力値チェック */
+//		String telephone = form.getTelephone();
+//		if(!(telephone == "^\\d{3}-\\d{4}-\\d{4}$")){
+//			ObjectError error = new ObjectError("telephoneError", "電話番号の記入方法が違います。0-9の数字とハイフン（-）のみを使用してください。");
+//			result.addError(error);
+//			return input();
+//		}
+		
 		/** メールアドレス重複チェック */
 		
 		String email = form.getEmail();

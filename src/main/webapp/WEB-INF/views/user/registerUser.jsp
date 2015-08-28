@@ -130,11 +130,11 @@
 				</tr>
 				<tr>
 					<td>パスワード</td>
-					<td><form:input path="password"/></td>		
+					<td><form:password path="password"/></td>		
 				</tr>
 				<tr>
 					<td>確認用パスワード</td>
-					<td><form:input path="confirmPassword"/></td>		
+					<td><form:password path="confirmPassword"/></td>		
 				</tr>
 				
 			</table>
