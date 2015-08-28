@@ -19,4 +19,6 @@ public class UserPage {
 	private String address;
 	/**ユーザ電話番号*/
 	private String telephone;
+	/**ページ遷移を記録*/
+	private String beforePage;
 }
