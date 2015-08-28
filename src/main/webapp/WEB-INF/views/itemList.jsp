@@ -47,18 +47,24 @@
 		<h2 align="center">該当商品はありません。以下に商品リストを表示します。</h2>
 	</c:if>
 	<table border="1" align="center">
-		<tr>
-			<th colspan="2">商品名</th>
-			<th>価格</th>
-		</tr>
-		<c:forEach var="item" items="${serchItempage.childPage}">
-			<tr>
+		<c:forEach var="item" items="${serchItempage.childPage}" varStatus="status">
+			<c:if test="${status.index == 0}">
+				<tr>
+					<th colspan="2">商品名</th>
+					<th>価格</th>
+					<c:if test="${serchItempage.childPage.size() >= 2}">
+						<th colspan="2">商品名</th>
+						<th>価格</th>
+					</c:if>
+				</tr>
+			</c:if>
 			<td><a href="/showItem/findById/${item.id}" id="id" ><img src="../img/${item.imagePath}"
 					width="150" height="125" alt="商品画像"></a></td>
 			<td><a href="/showItem/findById/${item.id}" id="id"><c:out value="${item.name}"/></a></td>
-			<td><fmt:formatNumber value="${item.price}" pattern="###,###" />
-				円</td>
-			</tr>
+			<td><fmt:formatNumber value="${item.price}" pattern="###,###" />円</td>
+			<c:if test="${status.index % 2 == 1}">
+				<tr></tr>
+			</c:if>
 		</c:forEach>
 	</table>
 </body>
