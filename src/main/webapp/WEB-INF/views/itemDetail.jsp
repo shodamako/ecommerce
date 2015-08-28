@@ -15,7 +15,7 @@
 <body>
 	<header>
 		<div id="userHeader" align="right">
-			<p>こんにちはゲストさん</p>
+			<p>こんにちは<c:out value="${user.name}"/>さん</p>
 			<p>
 				<a href="/loginUser">ログイン</a>
 				<a href="/logoutUser">ログアウト</a>
