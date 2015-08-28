@@ -40,8 +40,35 @@ header {
 	border-radius: 5px;
 	z-index:0;
 }
-
-li {
+.tab{
+	padding:0;
+}
+.panel{
+	padding-top:30px;
+	padding-bottom:30px;
+	border-radius:5px;
+	background-color:#ffe866;
+}
+.input{
+	width:60%;
+}
+.tab{
+	font-size:0;
+	padding:0;
+}
+.tab li{
+	background-color: white;
+	display: inline-block;
+	font-size:12px;
+	width:28%;
+	cursor: pointer;
+}
+#tabs .active{
+	background-color:#ffe866;
+	font-size:18px;
+	border-top-left-radius:10px;
+}
+.menuList li {
 	margin-left: -45px;
 	list-style-type: none;
 }
