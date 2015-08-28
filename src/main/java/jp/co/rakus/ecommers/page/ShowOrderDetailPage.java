@@ -2,6 +2,8 @@ package jp.co.rakus.ecommers.page;
 
 import java.util.List;
 
+import jp.co.rakus.ecommers.domain.OrderItem;
+import jp.co.rakus.ecommers.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +15,7 @@ public class ShowOrderDetailPage {
 	/**ID*/
 	private Long id;
 	/** 注文番号 */
-	private String no;
+	private String orderNumber;
 	/** ユーザー名 */
 	private String name;
 	/** メールアドレス */
@@ -29,11 +31,15 @@ public class ShowOrderDetailPage {
 	/** 税 */
 	private int tax;
 	/** 支払い方法 */
-	private String paymentMethod;
+	private String payment;
 	/** 送料一律 */
 	private int postage;
 	/** 総計 */
 	private int grandTotal;
 	/** ステータス */
 	private int status;
+	/**ユーザー情報*/
+	private User user;
+	/**商品情報 */
+	private List<OrderItem> orderItemList;
 }

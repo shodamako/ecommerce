@@ -36,6 +36,17 @@ public class AddCartService {
 		orderItem.setItemId(form.getItemId());
 		orderItem.setQuantity(form.getQuantity());
 		
+		int index = 0;
+		for (OrderItem cartItem : cartItemList) {
+			if (orderItem.getItemId().equals(cartItem.getItemId())) {
+				OrderItem updateItem = cartItemList.get(index);
+				Integer quantity = updateItem.getQuantity();
+				updateItem.setQuantity(quantity + orderItem.getQuantity());
+				return cartItemList;
+			}
+			++index;
+		}
+		
 		cartItemList.add(orderItem);
 		
 		model.addAttribute("orderItemlist", cartItemList);
