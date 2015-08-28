@@ -9,6 +9,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import lombok.Data;
 
+/**
+ * ユーザー情報登録のフォーム.
+ * @author ShoKodama
+ *
+ */
 @Data
 public class RegisterUserForm {
 	/**ユーザ名*/

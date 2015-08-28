@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,19 +60,6 @@ public class RegisterUserController {
 		/** 入力値チェック */
 		
 		if(result.hasErrors()){
-//			FieldError error = new FieldError("nameError", "name", "");
-//			FieldError error2 = new FieldError("emailError", "email", "");
-//			FieldError error3 = new FieldError("passwordError", "password", "");
-//			FieldError error4 = new FieldError("confirmPasswordError", "confirmPassword", "");
-//			FieldError error5 = new FieldError("addressError", "address", "");
-//			FieldError error6 = new FieldError("telephoneError", "telephone", "");
-//			result.addError(error);
-//			result.addError(error2);
-//			result.addError(error3);
-//			result.addError(error4);
-//			result.addError(error5);
-//			result.addError(error6);
-			
 			ObjectError error = new ObjectError("registerError", "");
 			result.addError(error);
 			return input();
@@ -105,7 +91,7 @@ public class RegisterUserController {
 		
 		model.addAttribute("page", page);
 		redirectAttributes.addFlashAttribute("page", page);
-		return "redirect:/loginUser/login";
+		return "redirect:/loginUser";
 	}
 
 }
