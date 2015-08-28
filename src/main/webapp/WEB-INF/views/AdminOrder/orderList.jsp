@@ -62,7 +62,7 @@
 										入金済み
 									</c:when>
 									<c:when test="${order.status==3 }">
-										発想済み
+										発送済み
 									</c:when>
 									<c:when test="${order.status==9 }">
 										キャンセル
