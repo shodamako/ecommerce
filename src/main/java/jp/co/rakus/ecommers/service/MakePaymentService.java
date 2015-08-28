@@ -32,6 +32,7 @@ public class MakePaymentService {
 			mpcp.setName(item.getName());
 			mpcp.setPrice(item.getPrice());
 			mpcp.setQuantity(order.getQuantity());
+			mpcp.setImagePath(item.getImagePath());
 			Integer taxPrice = (int)(item.getPrice() * order.getQuantity() * (1 + TAX_RATE));
 			mpcp.setTaxPrice(taxPrice);
 			tax += (int)(item.getPrice() * order.getQuantity() * TAX_RATE);

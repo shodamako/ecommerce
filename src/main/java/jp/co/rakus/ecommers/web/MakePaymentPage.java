@@ -27,4 +27,5 @@ public class MakePaymentPage {
 	private String address;
 	private String telephone;
 
+
 }
