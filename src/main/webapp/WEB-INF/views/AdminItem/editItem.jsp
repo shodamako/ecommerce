@@ -13,27 +13,8 @@
 <script>
 	$(function() {
 		$("#tabs").tabs();
-
 		$('.menu').click(function() {
 			$('.menuList').slideToggle();
-		});
-		
-		$('#image').click(function(){
-			$('.hiddenBtn').slideUp();
-			$('#chkButton').slideDown();
-		});
-		
-		$('#chkButton').click(function(){
-			var upFiles = document.getElementById("image").files;
-			for (var i = 0; i < upFiles.length; i++) {
-				if (upFiles[i].size >= 5120000) {
-					$('#chkButton').slideUp();
-					alert("画像ファイルは5120KB以下の画像を選択してください。");
-				}else{
-					$('.hiddenBtn').slideDown();
-					$('#chkButton').slideUp();
-				}
-			}
 		});
 	});
 </script>
@@ -71,7 +52,7 @@
 	<hr>
 	<!-- 商品画像編集 -->
 	<div class="editTable">
-	<form:form action="/Admin/EditImage" modelAttribute="editItemForm" method="POST" enctype="multipart/form-data">
+	<form:form action="/Admin/EditImage" modelAttribute="editItemForm" enctype="multipart/form-data">
 	<h2  align="center">商品詳細</h2>
 	<table border="1">
 		<tr>
@@ -89,8 +70,7 @@
 				<input type="hidden" name="price" value="${editItemForm.price}">
 				<input type="hidden" name="imagePath" value="${editItemForm.imagePath}">
 				<input type="hidden" name="deleted" value="${editItemForm.deleted}">
-				<input type="button" value="チェック" id="chkButton">
-				<input type="submit" value="画像を変更する" class="hiddenBtn">
+				<input type="submit" value="画像を変更する">
 			</td>
 		</tr>
 	</table>
