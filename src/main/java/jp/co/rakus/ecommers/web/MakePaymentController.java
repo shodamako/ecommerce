@@ -35,7 +35,7 @@ public class MakePaymentController {
 	@RequestMapping(value = "/")
 	public String list(Model model, @ModelAttribute("orderItemlist") ArrayList<OrderItem> orderItemList, 
 			@ModelAttribute("user") UserPage user) {
-		
+		user.setBeforePage("/makePayment");
 		if (user.getEmail() == null) {
 			return "forward:/loginUser";
 		}

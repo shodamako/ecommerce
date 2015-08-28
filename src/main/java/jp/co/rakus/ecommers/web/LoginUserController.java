@@ -52,8 +52,8 @@ public class LoginUserController {
 	 * @return　商品一覧画面に飛ぶ、エラー発生時はログイン画面に戻る
 	 */
 	@RequestMapping(value = "/login")
-	public String login(@Validated LoginUserForm form, BindingResult result, RedirectAttributes redirectAttributes,
-			Model model) {
+	public String login(@Validated LoginUserForm form, BindingResult result, RedirectAttributes redirectAttributes, 
+			@ModelAttribute("user") UserPage before, Model model) {
 		
 		/** エラーチェック */
 		
@@ -64,6 +64,8 @@ public class LoginUserController {
 			result.addError(error2);
 			return index();
 		}
+		
+		String beforePage = before.getBeforePage();
 		
 		/** DBでユーザー情報チェック */
 		
@@ -85,6 +87,9 @@ public class LoginUserController {
 		
 		model.addAttribute("user", user);
 		redirectAttributes.addFlashAttribute("user", user);
+		if (("/makePayment").equals(beforePage)) {
+			return "redirect:/makePayment/";
+		}
 		return "redirect:/serchItem/";
 	}
 }
