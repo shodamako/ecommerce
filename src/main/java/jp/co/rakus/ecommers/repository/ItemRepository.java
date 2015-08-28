@@ -55,7 +55,7 @@ public class ItemRepository {
 	 * @return　itemList
 	 */
 	public List<Item> findAll(){
-		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items";
+		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items ORDER BY id DESC";
 		List<Item> itemList = jdbcTemplate.query(sql, ITEM_ROW_MAPPER);
 		return itemList;
 	}
@@ -106,7 +106,7 @@ public class ItemRepository {
 	 * @return 該当商品一覧情報を持ったListオブジェクト
 	 */
 	public List<Item> findByKeyword(String keyword){
-		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items WHERE name like :keyword";
+		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items WHERE name like :keyword ORDER BY id DESC";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("keyword", keyword);
 		List<Item> itemList = jdbcTemplate.query(sql, param, ITEM_ROW_MAPPER);
 		return itemList;
@@ -116,7 +116,7 @@ public class ItemRepository {
 	 * @return 商品情報.商品情報が存在しない場合はnull
 	 */
 	public Item findByName(String name) {
-		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items WHERE name = :name";
+		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items WHERE name = :name ORDER BY id DESC";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("name", name);
 		Item item = jdbcTemplate.queryForObject(sql, param, ITEM_ROW_MAPPER);
 		return item;
@@ -128,7 +128,7 @@ public class ItemRepository {
 	 * @return　該当商品一覧情報を持ったListオブジェクト
 	 */
 	public List<Item> findByKeywordAndPrice(String keyword, Integer price){
-		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items WHERE name like :keyword AND price <= :price";
+		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items WHERE name like :keyword AND price <= :price ORDER BY id DESC";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("keyword", keyword).addValue("price", price);
 		List<Item> itemList = jdbcTemplate.query(sql, param, ITEM_ROW_MAPPER);
 		return itemList;
