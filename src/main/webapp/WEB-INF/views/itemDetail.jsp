@@ -32,6 +32,9 @@
 		<div id="title" align="center"></div>
 	</header>
 	<h2 align="center">商品詳細</h2>
+	<h3 align="center"><c:out value="${errorMessage}"/></h3>
+	
+	<c:if test="${item != null}">
 	<table border="1" align="center">
 		<tr>
 			<td colspan="2" rowspan="3"><img
@@ -61,6 +64,8 @@
 		<div class="sendCart" align="center"><p><input type="submit" value="カートに入れる"></p></div>
 	
 </form:form>
+</c:if>
+
 		<div class="sendCart" align="center"><p><a href="/serchItem/">商品一覧画面へ戻る</a></p></div>
 <%-- 
 		<form action="/addCart" method="post">
