@@ -66,7 +66,7 @@
 	<form action="/Admin/registShow">
     	<input type="submit" value="クリア">
     </form>
-  <a href="/Admin/showMenu">戻る</a>
+  <a href="/Admin/showMenu">メニューに戻る</a>
 </div>
 </body>
 </html>
