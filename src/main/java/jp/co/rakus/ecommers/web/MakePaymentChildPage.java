@@ -18,5 +18,5 @@ public class MakePaymentChildPage {
 	private Integer quantity;
 	private Integer taxPrice;
 	private Integer sumPrice;
-
+	private String imagePath;
 }

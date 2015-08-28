@@ -44,7 +44,7 @@
 			</tr>
 			<c:forEach var="item" items="${makePaymentPage.childPage}">
 				<tr>
-					<td><c:out value="${item.name}"/></td>
+					<td><c:out value="${item.name}"/><img src="../img/<c:out value="${item.imagePath}"/>" width="150"height="125" alt="商品画像"></td>
 					<td align="right">￥<fmt:formatNumber value="${item.price}" pattern="###,###"/></td>
 					<td align="right"><c:out value="${item.quantity}"/></td>
 					<td align="right">￥<fmt:formatNumber value="${item.taxPrice}" pattern="###,###"/></td>
