@@ -7,6 +7,16 @@
 <head>
 <link rel="stylesheet" href="/css/item.css">
 <link href="/css/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+<script src="/js/jquery-1.8.3.js"></script>
+<script src="/js/jquery-ui-1.9.2.custom.js"></script>
+<script>
+	$(function() {
+		$("#tabs").tabs();
+		$('.menu').click(function() {
+			$('.menuList').slideToggle();
+		});
+	});
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理者登録</title>
 </head>
@@ -27,7 +37,15 @@
 				</p>
 			</div>
 			<div class="userHeaderContents">
-				<div class="menu"><a href="/Admin/logout">ログアウト</a></div>
+				<div class="menu">メニュー▼</div>
+				<div class="menuList">
+					<ul>
+						<li><a href="/Admin/showMenu">メニュー</a></li>
+						<li><a href="/Admin/Item">商品管理</a></li>
+						<li><a href="/Admin/orderList">注文一覧</a></li>
+						<li><a href="/Admin/logout">ログアウト</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</header>
