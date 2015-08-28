@@ -29,17 +29,17 @@ public class ShowOrderDetailController {
 	private ShowOrderDetailService showOrderDetailService;
 
 	@ModelAttribute
-	public OrderStatusForm setUpform(){
+	public OrderStatusForm setUpform() {
 		return new OrderStatusForm();
 	}
-	
+
 	@RequestMapping(value = "{orderId}")
-	public String ShowOrderDetail(@PathVariable("orderId") Long id,OrderStatusForm form, ShowOrderDetailForm showOrderDetailForm,
-			Model model,HttpSession session,RedirectAttributes redirectAttributes) {
+	public String ShowOrderDetail(@PathVariable("orderId") Long id, ShowOrderDetailForm showOrderDetailForm,
+			Model model, HttpSession session, RedirectAttributes redirectAttributes) {
 		LoginCheck lc = new LoginCheck();
-		if(lc.loginCheck(session)){
+		if (lc.loginCheck(session)) {
 			String error = "不正なアクセスです。ログインからやり直してください。";
-			redirectAttributes.addFlashAttribute("error",error);
+			redirectAttributes.addFlashAttribute("error", error);
 			return "redirect:/Admin";
 		}
 		showOrderDetailForm.setId(id);
@@ -51,24 +51,14 @@ public class ShowOrderDetailController {
 		statusMap.put(2, "入金済");
 		statusMap.put(3, "発送済");
 		statusMap.put(9, "キャンセル");
-//		for (OrderItem orderItem : order.getOrderItemList()) {
-//			ShowOrderDetailChildPage childPage = new ShowOrderDetailChildPage();
-//			BeanUtils.copyProperties(orderItem, childPage);
-//			List<Item> itemList = showOrderDetailService.findbyItemId(orderItem.getItemId());
-//			childPage.setName(itemList.get(0).getName());
-//			childPage.setPrice(itemList.get(0).getPrice());
-//			childPage.setTotalPrice(childPage.getPrice() * childPage.getQuantity());
-//			show
-//		}
-		
 		model.addAttribute("statusMap", statusMap);
 		model.addAttribute("ShowOrderDetailPage", showOrderDetailPage);
 		return "/AdminOrder/orderDetail";
 	}
-	
+
 	@RequestMapping("/UpdateStatus")
-	public String UpdateStatus(@RequestParam Long id,OrderStatusForm form,Model model){
+	public String UpdateStatus(@RequestParam Long id, OrderStatusForm form, Model model) {
 		showOrderDetailService.updateStatus(id, form.getStatus());
-		return "redirect:/Admin/ShowOrderDetail/"+id;
+		return "redirect:/Admin/ShowOrderDetail/" + id;
 	}
 }

@@ -8,6 +8,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 注文詳細情報を持つページ.
+ * @author yuya.asari
+ *
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
