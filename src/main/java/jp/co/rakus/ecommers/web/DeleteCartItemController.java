@@ -32,10 +32,10 @@ public class DeleteCartItemController {
 	/**
 	 * カート商品削除のメソッド.
 	 * @param orderItemlist カート内商品の一覧リスト
-	 * @param itemId
+	 * @param itemId　削除する商品のID
 	 * @param redirectattributes
 	 * @param model
-	 * @return
+	 * @return　指定商品削除後のリストを返す
 	 */
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public String delete(@ModelAttribute("orderItemlist")ArrayList<OrderItem> orderItemlist, 

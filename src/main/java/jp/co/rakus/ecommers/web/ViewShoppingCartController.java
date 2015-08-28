@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import jp.co.rakus.ecommers.domain.OrderItem;
 import jp.co.rakus.ecommers.service.ViewShoppingCartService;
 
+/**
+ * ショッピングカート表示のコントローラークラス.
+ * @author ShoKodama
+ *
+ */
 @Controller
 @Transactional
 @RequestMapping("/cart")
@@ -22,19 +27,22 @@ public class ViewShoppingCartController {
 	@Autowired
 	ViewShoppingCartService viewShoppingService;
 	
+	/**
+	 * カート内商品の一覧を出すメソッド.
+	 * @param orderItemlist カート内商品一覧のリスト
+	 * @param model
+	 * @return　カート内商品一覧のリスト、無い場合は空のリストとメッセージを返す
+	 */
 	@RequestMapping
 	public String showCart(@ModelAttribute("orderItemlist")ArrayList<OrderItem> orderItemlist, Model model){
 		
 		ViewShoppingCartPage page = viewShoppingService.showCart(orderItemlist, model);		
 		model.addAttribute("page", page);
 		
-//		for(OrderItem item: orderItemlist){
 			if(orderItemlist.size() == 0){
 				String message = "カートに商品がありません";
 				model.addAttribute("message", message);
-			}
-//		}
-		
+			}		
 		
 		return "/viewShoppingCart";
 	}

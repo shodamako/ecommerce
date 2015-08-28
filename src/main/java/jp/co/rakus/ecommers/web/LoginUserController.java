@@ -33,15 +33,29 @@ public class LoginUserController {
 		return new LoginUserForm();
 	}
 
+	/**
+	 * ログイン画面への遷移用メソッド.
+	 * @return ログイン画面
+	 */
 	@RequestMapping
 	public String index() {
 		return "loginUser";
 	}
 
+	/**
+	 * ログイン処理をするメソッド.
+	 * @param form ログイン画面で記入されたフォーム内のデータ
+	 * @param result　
+	 * @param redirectAttributes
+	 * @param model
+	 * @return　商品一覧画面に飛ぶ、エラー発生時はログイン画面に戻る
+	 */
 	@RequestMapping(value = "/login")
 	public String login(@Validated LoginUserForm form, BindingResult result, RedirectAttributes redirectAttributes,
 			Model model) {
-
+		
+		/** エラーチェック */
+		
 		if (result.hasErrors()) {
 			FieldError error = new FieldError("emailError", "email", "");
 			FieldError error2 = new FieldError("passwordError", "password", "");
@@ -49,7 +63,9 @@ public class LoginUserController {
 			result.addError(error2);
 			return index();
 		}
-
+		
+		/** DBでユーザー情報チェック */
+		
 		UserPage user = loginUserService.execute(form, result, model);
 
 		if (user == null) {
@@ -59,7 +75,9 @@ public class LoginUserController {
 			result.addError(error2);
 			return index();
 		}
-
+		
+		/** ユーザー情報をセッションに入れて、商品一覧画面へ */
+		
 		model.addAttribute("user", user);
 		redirectAttributes.addFlashAttribute("user", user);
 		return "redirect:/serchItem/";
