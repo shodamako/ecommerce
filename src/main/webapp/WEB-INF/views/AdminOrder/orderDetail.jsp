@@ -18,7 +18,7 @@
 		});
 	});
 </script>
-<title>管理画面：商品詳細</title>
+<title>管理画面：注文詳細</title>
 </head>
 <body>
 	<header>
