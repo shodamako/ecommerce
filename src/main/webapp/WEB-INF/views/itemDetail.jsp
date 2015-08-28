@@ -36,7 +36,7 @@
 		<div id="title" align="center"></div>
 	</header>
 	<h2 align="center">商品詳細</h2>
-	<h3 align="center"><c:out value="${errorMessage}"/></h3>
+	<p align="center"><c:out value="${errorMessage}"/></p>
 	
 	<c:if test="${item != null}">
 	<table border="1" align="center">
@@ -53,7 +53,7 @@
 		</tr>
 		<tr>
 			<th>商品説明：</th>
-			<td><c:out value="${item.description}" /></td>
+			<td><pre><c:out value="${item.description}" /></pre></td>
 		</tr>
 	</table>
 
