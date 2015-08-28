@@ -16,6 +16,6 @@ public class ShowOrderDetailChildPage {
 	private Integer price;
 	/**個数*/
 	private Integer quantity;
-	/**金額*/
+	/**小計*/
 	private Integer totalPrice;
 }

@@ -86,11 +86,11 @@
 			<c:forEach var="child" items="${ShowOrderDetailPage.orderItemList}">
 				<tr>
 					<td><c:out value="${child.item.name}" /></td>
-					<td><fmt:formatNumber value="${child.item.price}"
+					<td align="right"><fmt:formatNumber value="${child.item.price}"
 							pattern="###,###" />円</td>
 					<td align="center"><c:out value="${child.quantity}" /></td>
-					<td><fmt:formatNumber
-							value="${ShowOrderDetailPage.totalPrice}" pattern="###,###" />円</td>
+					<td align="right"><fmt:formatNumber
+							value="${child.item.price * child.quantity}" pattern="###,###" />円</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -100,17 +100,17 @@
 		<table border="1">
 			<tr>
 				<th nowrap>小計</th>
-				<td><fmt:formatNumber value="${ShowOrderDetailPage.totalPrice}"
+				<td align="right"><fmt:formatNumber value="${ShowOrderDetailPage.totalPrice / 1.08}"
 						pattern="###,###" />円</td>
 			</tr>
 			<tr>
 				<th nowrap>税</th>
 				<td align="right"><fmt:formatNumber
-						value="${ShowOrderDetailPage.totalPrice * 0.08}" pattern="###,###" />円</td>
+						value="${ShowOrderDetailPage.totalPrice /1.08 * 0.08}" pattern="###,###" />円</td>
 			</tr>
 			<tr>
 				<th nowrap>支払い方法</th>
-				<td><c:out value="${ShowOrderDetailPage.payment}" /></td>
+				<td align="right">銀行振込</td>
 			</tr>
 			<tr>
 				<th nowrap>送料一律</th>
@@ -119,7 +119,7 @@
 			<tr>
 				<th nowrap>総計</th>
 				<td align="right"><fmt:formatNumber
-						value="${ShowOrderDetailPage.totalPrice * 1.08 + 500}"
+						value="${ShowOrderDetailPage.totalPrice + 500}"
 						pattern="###,###" />円</td>
 			</tr>
 		</table>
