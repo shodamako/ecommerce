@@ -34,7 +34,7 @@ public class ShowOrderDetailController {
 	}
 	
 	@RequestMapping(value = "{orderId}")
-	public String ShowOrderDetail(@PathVariable("orderId") Long id, ShowOrderDetailForm showOrderDetailForm,
+	public String ShowOrderDetail(@PathVariable("orderId") Long id,OrderStatusForm form, ShowOrderDetailForm showOrderDetailForm,
 			Model model,HttpSession session,RedirectAttributes redirectAttributes) {
 		LoginCheck lc = new LoginCheck();
 		if(lc.loginCheck(session)){
@@ -60,6 +60,7 @@ public class ShowOrderDetailController {
 //			childPage.setTotalPrice(childPage.getPrice() * childPage.getQuantity());
 //			show
 //		}
+		
 		model.addAttribute("statusMap", statusMap);
 		model.addAttribute("ShowOrderDetailPage", showOrderDetailPage);
 		return "/AdminOrder/orderDetail";
