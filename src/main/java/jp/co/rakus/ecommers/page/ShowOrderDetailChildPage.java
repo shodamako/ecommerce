@@ -2,6 +2,11 @@ package jp.co.rakus.ecommers.page;
 
 import lombok.Data;
 
+/**
+ * 注文詳細情報を持つチャイルドページ.
+ * @author yuya.asari
+ *
+ */
 @Data
 public class ShowOrderDetailChildPage {
 	
@@ -10,8 +15,7 @@ public class ShowOrderDetailChildPage {
 	/**価格*/
 	private Integer price;
 	/**個数*/
-	private Integer count;
+	private Integer quantity;
 	/**金額*/
 	private Integer totalPrice;
-
 }
