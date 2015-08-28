@@ -17,8 +17,12 @@
 		<div id="userHeader" align="right">
 			<p>こんにちは<c:out value="${user.name}"/>さん</p>
 			<p>
+				<c:if test="${user.id == null }">
 				<a href="/loginUser">ログイン</a>
-				<a href="/logoutUser">ログアウト</a>
+				</c:if>
+			    <c:if test="${user.id != null}">
+				  <a href="/logoutUser">ログアウト</a>
+				</c:if>
 			</p>
 			<p>
 				<a href="/cart">カートの中身を見る</a>
