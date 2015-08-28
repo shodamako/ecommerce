@@ -33,6 +33,7 @@
 					height="50" alt="ロゴ画像">ＥＣサイトラクス</a>
 			</h1>
 			<div id="title" align="center"></div>
+		</div>
 	</header>
 
 	<h2 align="center">商品一覧</h2>

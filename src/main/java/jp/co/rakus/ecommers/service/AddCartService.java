@@ -54,4 +54,15 @@ public class AddCartService {
 		return cartItemList;
 		
 	}
+	
+	public ArrayList<OrderItem> update(Model model, AddCartForm form, ArrayList<OrderItem> cartItemList) {
+		
+		int quantity = form.getQuantity();
+		int index = form.getItemId().intValue();
+		cartItemList.get(index).setQuantity(quantity);
+		model.addAttribute("orderItemlist", cartItemList);
+		
+		return cartItemList;
+		
+	}
 }
