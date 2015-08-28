@@ -6,25 +6,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/css/item.css">
+<link href="/css/jquery-ui-1.9.2.custom.css" rel="stylesheet">
 <title>管理者ログイン画面</title>
-<style>
-#tableName{
-	text-align: right;
-}
-</style>
 </head>
 <body>
 
+	</head>
+<body>
 	<header>
-	<div id="userHeader" align="right">
-	</div>
-	<div id="linkHeader" align="left">
-		<h1 align="left">
-			<a href="/Admin"><img src="../../img/rakus.jpg" width="50"
-				height="50" alt="ロゴ画像"></a>
-		</h1>
-	</div>
-	<div id="title" align="center"></div>
+		<div id="linkHeader">
+			<h1 align="left">
+				<a href="/Admin"> <img src="/img/rakus.jpg" width="50"
+					height="50" alt="ロゴ画像"></a>
+			</h1>
+		</div>
 	</header>
 	<hr>
 	<div align="center">

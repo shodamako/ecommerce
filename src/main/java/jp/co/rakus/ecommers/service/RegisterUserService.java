@@ -1,6 +1,5 @@
 package jp.co.rakus.ecommers.service;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -45,9 +44,17 @@ public class RegisterUserService {
 				UserPage page = null;
 				return page;
 			}
-
 				User user = new User();
-				BeanUtils.copyProperties(form, user);
+				user.setName(form.getName());
+				user.setEmail(form.getEmail());
+				user.setPassword(form.getPassword());
+				user.setAddress(form.getAddress());
+				
+				String telephone = form.getTelephone1() + form.getTelephone2() + form.getTelephone3();
+				
+				user.setTelephone(telephone);
+//				BeanUtils.copyProperties(form, user);
+				
 				User userForPage = registerUserRepository.save(user);
 				
 				UserPage page = new UserPage();

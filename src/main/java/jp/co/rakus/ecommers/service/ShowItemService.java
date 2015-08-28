@@ -79,7 +79,7 @@ public class ShowItemService {
 				childPageList.add(childPage);
 			}
 		} else if (form.getId() == 2) {
-			List<Item> itemList = itemRepository.findByKeyword(form.getKeyword());
+			List<Item> itemList = itemRepository.findByKeywordComplete(form.getKeyword());
 			if (itemList.isEmpty()) {
 				msg = "該当する商品がありません";
 				itemList = itemRepository.findAll();

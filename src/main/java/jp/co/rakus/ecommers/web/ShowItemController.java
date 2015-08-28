@@ -35,15 +35,15 @@ public class ShowItemController {
 	}
 	/**
 	 * id値の商品情報を取得.
+	 * 商品情報がない場合はnullを返す
 	 * @param id id値
 	 * @param model モデル
-	 * @return 検索された商品情報
+	 * @return 検索された商品情報 またはnull
 	 */
 	@RequestMapping(value = "/findById/{itemId}")
 	public String findById(@PathVariable("itemId") Long id, Model model){
 		ShowItemPage item = showItemService.execute(id);
 		if (item == null) {
-			System.out.println(1);
 			String error = "商品情報が見つかりませんでした";
 			model.addAttribute("errorMessage",error);
 			return list();

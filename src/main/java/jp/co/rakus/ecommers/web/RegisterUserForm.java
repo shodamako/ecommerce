@@ -35,8 +35,16 @@ public class RegisterUserForm {
 	/**ユーザ住所*/
 	@NotBlank(message="住所を入力してください")
 	private String address;
-	/**ユーザ電話番号*/
+	/**ユーザ電話番号1*/
 	@NotBlank(message="電話番号を入力してください")
-	@Pattern(regexp = "^\\d{2,4}-\\d{3,5}-\\d{3,5}$", message="電話番号の記入方法が違います。0-9の数字とハイフン（-）のみを使用してください。")
-	private String telephone;
+	@Pattern(regexp = "^\\d{2,4}$", message="電話番号の記入方法が違います。0-9の数字のみを使用してください。")
+	private String telephone1;
+	/**ユーザ電話番号2*/
+	@NotBlank(message="電話番号を入力してください")
+	@Pattern(regexp = "^\\d{3,5}$", message="電話番号の記入方法が違います。0-9の数字のみを使用してください。")
+	private String telephone2;
+	/**ユーザ電話番号3*/
+	@NotBlank(message="電話番号を入力してください")
+	@Pattern(regexp = "^\\d{3,5}$", message="電話番号の記入方法が違います。0-9の数字のみを使用してください。")
+	private String telephone3;
 }

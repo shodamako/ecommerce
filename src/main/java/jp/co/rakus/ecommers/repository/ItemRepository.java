@@ -124,7 +124,20 @@ public class ItemRepository {
 	 * @return 該当商品一覧情報を持ったListオブジェクト
 	 */
 	public List<Item> findByKeyword(String keyword) {
-		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items WHERE name like :keyword ORDER BY id DESC";
+		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items WHERE name ILIKE :keyword ORDER BY id DESC";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("keyword", keyword);
+		List<Item> itemList = jdbcTemplate.query(sql, param, ITEM_ROW_MAPPER);
+		return itemList;
+	}
+	/**
+	 * 商品検索をするメソッド.
+	 * 
+	 * @param keyword
+	 *            検索ワード
+	 * @return 該当商品一覧情報を持ったListオブジェクト
+	 */
+	public List<Item> findByKeywordComplete(String keyword) {
+		String sql = "SELECT id,name,description,price,imagePath,deleted FROM items WHERE name = :keyword ORDER BY id DESC";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("keyword", keyword);
 		List<Item> itemList = jdbcTemplate.query(sql, param, ITEM_ROW_MAPPER);
 		return itemList;
