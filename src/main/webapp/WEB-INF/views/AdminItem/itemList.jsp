@@ -62,7 +62,7 @@
 					あいまい検索
 					<form:form action="/Admin/Item" modelAttribute="showItemForm">
 						<form:hidden path="id" value="1"/>
-						<form:input path="keyword" />
+						商品名に<form:input path="keyword" />を含む
 						<input type="submit" value="検索">
 					</form:form>
 				</div>
@@ -70,7 +70,7 @@
 					完全一致検索
 					<form:form action="/Admin/Item" modelAttribute="showItemForm">
 						<form:hidden path="id" value="2"/>
-						<form:input path="keyword" />
+						商品名が<form:input path="keyword" />に完全一致する
 						<input type="submit" value="検索">
 					</form:form>
 				</div>
@@ -86,7 +86,7 @@
 						<br>
 						値段が
 						<form:input path="price" required="required" />
-						以下
+						円以下
 						<br>
 						<br>
 						<input type="submit" value="検索">
@@ -96,6 +96,8 @@
 		</div>
 		<div class="table">
 			<h2>商品一覧</h2>
+			…<span class="descRed"><font style="background-color:#fa8072">商品名</font></span>は削除済み商品
+			<br>
 			<br><input type="button" onclick="location.href='/Admin/Item'" value="一覧表示" />
 			<br> <span class="msg"><c:out value="${itemPage.msg}" /><c:out value="${insert}" /></span>
 			<br>

@@ -1,12 +1,13 @@
 package jp.co.rakus.ecommers.service;
 
-import org.springframework.beans.BeanUtils;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jp.co.rakus.ecommers.domain.Item;
 import jp.co.rakus.ecommers.domain.Order;
 import jp.co.rakus.ecommers.repository.OrderRepository;
-import jp.co.rakus.ecommers.web.EditItemForm;
 import jp.co.rakus.ecommers.web.ShowOrderDetailForm;
 
 @Service
@@ -19,11 +20,15 @@ public class ShowOrderDetailService {
 	 * @param showForm
 	 * @return 商品詳細情報
 	 */
-	public EditItemForm execute(ShowOrderDetailForm showOrderDetailForm){
+	public Order findById(ShowOrderDetailForm showOrderDetailForm){
 		Order order = orderRepository.findById(showOrderDetailForm.getId());
-		EditItemForm editItemForm = new EditItemForm();
-		
-		BeanUtils.copyProperties(order, editItemForm);
-		return editItemForm;
+		return order;
+	}
+	
+	public List<Item> findbyItemId(Long itemId){
+		return orderRepository.findByItemId(itemId);
+	}
+	public void updateStatus(Long id, Integer status) {
+		orderRepository.updateStatus(id, status);
 	}
 }

@@ -37,7 +37,7 @@ public class MakePaymentController {
 			@ModelAttribute("user") UserPage user) {
 		
 		if (user.getName() == null) {
-			return "forward:/loginUser/login";
+			return "forward:/loginUser";
 		}
 		MakePaymentPage makePaymentPage = makePaymentService.execute(orderItemList, user);
 		model.addAttribute("makePaymentPage", makePaymentPage);

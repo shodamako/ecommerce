@@ -12,9 +12,16 @@
 <body>
 	<header>
 		<div id="userHeader" align="right">
-			<p>こんにちはゲストさん</p>
+			<p>こんにちは<c:out value="${user.name}"/>さん
+			</p>
 			<p>
+			<c:if test="${user != null }" var="false">
 				<a href="/loginUser">ログイン</a>
+				</c:if>
+			    <c:if test="${user != null}">
+				  <a href="/logoutUser">ログアウト</a>
+				</c:if>
+				
 			</p>
 			<p>
 				<a href="/cart">カートの中身を見る</a>

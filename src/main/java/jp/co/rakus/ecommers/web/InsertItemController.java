@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -31,6 +32,7 @@ import jp.co.rakus.ecommers.service.InsertItemService;
  * @author Reo Okumura
  */
 @Controller
+@Transactional
 @SessionAttributes("page")
 public class InsertItemController {
 	@Autowired
@@ -102,6 +104,11 @@ public class InsertItemController {
 			return "/AdminItem/insert";
 		}
 		MultipartFile multipartFile = form.getFile();
+		if(!multipartFile.getOriginalFilename().endsWith(".jpg") && !multipartFile.getOriginalFilename().endsWith(".jpeg")){
+			FieldError error = new FieldError("editItemForm", "file", "画像ファイルの拡張子は.jpgまたは.jpegにしてください");
+			result.addError(error);
+			return "/AdminItem/insert";
+		}
 		try {
 			Integer price = new Integer(form.getPrice());
 			if (price < 1 || price > 500000) {

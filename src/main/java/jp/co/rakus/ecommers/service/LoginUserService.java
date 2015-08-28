@@ -22,7 +22,7 @@ public class LoginUserService {
 private LoginUserRepository loginUserRepository;
 
 /**
- * ログイン
+ * ログイン実行メソッド.
  * @param form
  * @param result
  * @param model
