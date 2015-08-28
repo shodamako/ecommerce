@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,8 @@
 	<h2 align="center">ショッピングカート一覧</h2>
 
     <p align="center"><c:out value="${message}"/></p>
-
+    
+    	<c:if test="${page.orderItemList.size() > 0}">
         <table border ="1"  align="center">
             <tr>
                 <th colspan="2">商品名</th>
@@ -46,18 +48,32 @@
                 <td>&yen;<fmt:formatNumber value="${item.item.price}" pattern="###,###" /></td>
                 <td><c:out value="${item.quantity}"/>個</td>
                 <td>
-                    <form action="/deleteCartItem" method="post">
+                    <form:form action="/deleteCartItem" method="post">
                         <input type="hidden" name="itemId" value="${item.itemId}">
                         <input type="submit" value="削除">
-                    </form>
+                    </form:form>
                 </td>
             </tr>
   
             </c:forEach>
             
-        </table><br>
+        </table>
+        </c:if>
+        <br>
 
-    <div  align="center"><a href="/makePayment/">決済へ</a></div>
+    <div  align="center">
+    <form:form action="/makePayment/" >
+    <c:choose>
+    	<c:when test="${page.orderItemList.size() > 0}">
+    		<input type="submit" value="決済へ">
+    	</c:when>
+    	<c:otherwise>
+    		<input type="submit" value="決済へ" disabled="disabled">
+    	</c:otherwise>
+    </c:choose>
+        	
+    </form:form>
+     </div>
     
 
 
