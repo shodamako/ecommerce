@@ -30,8 +30,7 @@
 		</div>
 			<div id="title" align="center"></div>
 	</header>
-
-
+    <p align="center"><c:out value="${quantityError}"/></p>
 	<h2 align="center">ショッピングカート一覧</h2>
 
     <p align="center"><c:out value="${message}"/></p>
