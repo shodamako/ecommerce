@@ -40,7 +40,6 @@ public class MakePaymentController {
 			return "forward:/loginUser";
 		}
 		MakePaymentPage makePaymentPage = makePaymentService.execute(orderItemList, user);
-		System.out.println(makePaymentPage);
 		model.addAttribute("makePaymentPage", makePaymentPage);
 		return "/makePayment";
 	}
