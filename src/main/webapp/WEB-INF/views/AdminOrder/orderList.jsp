@@ -49,8 +49,8 @@
 			</tr>
 			<c:forEach var="order" items="${orderpage.orderChildPage}">
 				<tr>
-					<td><Div Align="right"><a href="/Admin/ShowOrderDetail/${order.id}">
-							<c:out value="${order.orderNumber}" /></a></Div></td>
+					<td align="right"><a href="/Admin/ShowOrderDetail/${order.id}">
+							<c:out value="${order.orderNumber}" /></a></td>
 							<td><fmt:formatDate value="${order.date}" pattern="yyyy年MM月dd日" /></td>
 							<td><c:out value="${order.name}" /></td>
 							<td>
