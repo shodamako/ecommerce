@@ -5,30 +5,31 @@
 <!DOCTYPE>
 <html>
 <head>
+<link rel="stylesheet" href="/css/item.css">
+<link href="/css/jquery-ui-1.9.2.custom.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>メニュー画面</title>
-<style>
-#userHeader{
-	float: right;
-}
-#linkHeader{
-	float: light;
-}
-</style>
 </head>
 <body>
 	<header>
-	<div id="userHeader" align="right">
-			こんにちは管理者[<c:out value="${page.loginName }" />]さん<br>
-			<a href="/Admin/logout">ログアウト</a>
-	</div>
-	<div id="linkHeader" align="left">
-		<h1 align="left">
-			<a href="/Admin/showMenu"><img src="../../img/rakus.jpg"
-				width="50" height="50" alt="ロゴ画像"></a>
-		</h1>
-	</div>
-	<div id="title" align="center"></div>
+		<div id="linkHeader">
+			<h1 align="left">
+				<a href="/Admin/showMenu"> <img src="/img/rakus.jpg" width="50"
+					height="50" alt="ロゴ画像"></a>
+			</h1>
+		</div>
+		<div id="userHeader">
+			<div class="userHeaderContents">
+				<p>
+					管理者 <br> [
+					<c:out value="${page.loginName }" />
+					]さん
+				</p>
+			</div>
+			<div class="userHeaderContents">
+				<div class="menu"><a href="/Admin/logout">ログアウト</a></div>
+			</div>
+		</div>
 	</header>
 	<hr>
 
