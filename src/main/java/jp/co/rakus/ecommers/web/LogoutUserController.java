@@ -13,7 +13,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
 @Transactional
-@RequestMapping("/logout")
+@RequestMapping("/logoutUser")
 // @SessionAttributes(types={UserPage.class, Order.class})
 public class LogoutUserController {
 
@@ -22,7 +22,7 @@ public class LogoutUserController {
 	 * @param sessionStatus セッションスコープを削除するクラス
 	 * @return 商品一覧ページ
 	 */
-	@RequestMapping("/")
+	@RequestMapping
 	public String logout(SessionStatus sessionStatus) {
 		sessionStatus.setComplete();
 		return "forward:/Top";
