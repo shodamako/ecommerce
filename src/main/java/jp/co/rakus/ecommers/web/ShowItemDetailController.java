@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jp.co.rakus.ecommers.common.LoginCheck;
@@ -21,7 +22,7 @@ import jp.co.rakus.ecommers.service.ShowItemDetailService;
  */
 @Controller
 @Transactional
-@RequestMapping(value = "/Admin/ShowItemDetail")
+@RequestMapping(value = "/Admin/ShowItemDetail",method=RequestMethod.POST)
 public class ShowItemDetailController {
 	@Autowired
 	private ShowItemDetailService showItemDetailService;

@@ -58,7 +58,7 @@ public class EditItemController {
 	 * 
 	 * @param editForm
 	 */
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping
 	public String editItem(@Validated EditItemForm editItemForm, BindingResult result, HttpSession session,
 			RedirectAttributes redirectAttributes, Model model) {
 		// ログインチェック
@@ -91,9 +91,9 @@ public class EditItemController {
 
 		Item item = new Item();
 		BeanUtils.copyProperties(editItemForm, item);
-		ShowItemDetailForm showItemDetailForm = editItemService.execute(item);
+		editItemForm = editItemService.execute(item);
 
-		redirectAttributes.addFlashAttribute("showItemDetailForm", showItemDetailForm);
-		return "redirect:/Admin/ShowItemDetail";
+		redirectAttributes.addFlashAttribute("editItemForm", editItemForm);
+		return "/AdminItem/editItem";
 	}
 }

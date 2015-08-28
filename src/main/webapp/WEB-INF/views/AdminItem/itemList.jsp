@@ -117,7 +117,7 @@
 							<fmt:formatNumber value="${item.price}" pattern="###,###,###" />円
 						</td>
 						<td>
-							<form:form action="/Admin/ShowItemDetail" modelAttribute="showItemDetailForm">
+							<form:form action="/Admin/ShowItemDetail" modelAttribute="showItemDetailForm" method="POST">
 								<input type="hidden" name="id"
 									value="<c:out value="${item.id}" />" />
 								<input type="submit" value="編集">

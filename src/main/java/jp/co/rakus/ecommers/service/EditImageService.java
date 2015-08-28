@@ -1,10 +1,12 @@
 package jp.co.rakus.ecommers.service;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jp.co.rakus.ecommers.domain.Item;
 import jp.co.rakus.ecommers.repository.ItemRepository;
-import jp.co.rakus.ecommers.web.ShowItemDetailForm;
+import jp.co.rakus.ecommers.web.EditItemForm;
 
 /**
  * 商品画像を編集するサービス.
@@ -21,10 +23,11 @@ public class EditImageService {
 	 * @param editForm
 	 * @return　showForm
 	 */
-	public ShowItemDetailForm execute(Long id,String imagePath){
+	public EditItemForm execute(Long id,String imagePath){
 		itemRepository.updateImagePath(id,imagePath);
-		ShowItemDetailForm showItemDetailForm = new ShowItemDetailForm();
-		showItemDetailForm.setId(id);
-		return showItemDetailForm;
+		Item item = itemRepository.findById(id);
+		EditItemForm editItemForm = new EditItemForm();
+		BeanUtils.copyProperties(item, editItemForm);
+		return editItemForm;
 	}
 }

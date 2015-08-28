@@ -52,7 +52,7 @@
 	<hr>
 	<!-- 商品画像編集 -->
 	<div class="editTable">
-	<form:form action="/Admin/EditImage" modelAttribute="editItemForm" enctype="multipart/form-data">
+	<form:form action="/Admin/EditImage" modelAttribute="editItemForm" enctype="multipart/form-data" method="POST">
 	<h2  align="center">商品詳細</h2>
 	<table border="1">
 		<tr>

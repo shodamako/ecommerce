@@ -179,10 +179,10 @@ public class ItemRepository {
 	 * @param item
 	 * @return　商品情報.更新に失敗した場合はnull
 	 */
-	public String updateImagePath(Long id,String imagePath){
+	public Long updateImagePath(Long id,String imagePath){
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id).addValue("imagePath", imagePath);
 		String sql = "UPDATE items SET imagePath = :imagePath WHERE id = :id";
 		jdbcTemplate.update(sql, param);
-		return imagePath;
+		return id;
 	}
 }
