@@ -18,7 +18,7 @@
 		});
 	});
 </script>
-<title>管理画面：商品詳細</title>
+<title>管理画面：注文一覧</title>
 </head>
 <body>
 	<header>
@@ -42,7 +42,6 @@
 					<ul>
 						<li><a href="/Admin/showMenu">メニュー</a></li>
 						<li><a href="/Admin/Item">商品管理</a></li>
-						<li><a href="/Admin/orderList">注文一覧</a></li>
 						<li><a href="/Admin/logout">ログアウト</a></li>
 					</ul>
 				</div>

@@ -18,7 +18,7 @@
 		});
 	});
 </script>
-<title>管理画面：商品詳細</title>
+<title>管理画面：注文詳細</title>
 </head>
 <body>
 	<header>
@@ -86,10 +86,14 @@
 			<c:forEach var="child" items="${ShowOrderDetailPage.orderItemList}">
 				<tr>
 					<td><c:out value="${child.item.name}" /></td>
-					<td><fmt:formatNumber value="${child.item.price}"
+					<td align="right"><fmt:formatNumber value="${child.item.price}"
 							pattern="###,###" />円</td>
 					<td align="center"><c:out value="${child.quantity}" /></td>
+<<<<<<< HEAD
 					<td><fmt:formatNumber
+=======
+					<td align="right"><fmt:formatNumber
+>>>>>>> feature/login
 							value="${child.item.price * child.quantity}" pattern="###,###" />円</td>
 				</tr>
 			</c:forEach>
@@ -100,17 +104,25 @@
 		<table border="1">
 			<tr>
 				<th nowrap>小計</th>
+<<<<<<< HEAD
 				<td><fmt:formatNumber value="${ShowOrderDetailPage.totalPrice/1.08}"
+=======
+				<td align="right"><fmt:formatNumber value="${ShowOrderDetailPage.totalPrice / 1.08}"
+>>>>>>> feature/login
 						pattern="###,###" />円</td>
 			</tr>
 			<tr>
 				<th nowrap>税</th>
 				<td align="right"><fmt:formatNumber
+<<<<<<< HEAD
 						value="${ShowOrderDetailPage.totalPrice /1.08* 0.08}" pattern="###,###" />円</td>
+=======
+						value="${ShowOrderDetailPage.totalPrice /1.08 * 0.08}" pattern="###,###" />円</td>
+>>>>>>> feature/login
 			</tr>
 			<tr>
 				<th nowrap>支払い方法</th>
-				<td><c:out value="${ShowOrderDetailPage.payment}" /></td>
+				<td align="right">銀行振込</td>
 			</tr>
 			<tr>
 				<th nowrap>送料一律</th>
@@ -119,7 +131,11 @@
 			<tr>
 				<th nowrap>総計</th>
 				<td align="right"><fmt:formatNumber
+<<<<<<< HEAD
 						value="${ShowOrderDetailPage.totalPrice+ 500}"
+=======
+						value="${ShowOrderDetailPage.totalPrice + 500}"
+>>>>>>> feature/login
 						pattern="###,###" />円</td>
 			</tr>
 		</table>
