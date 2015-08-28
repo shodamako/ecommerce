@@ -16,5 +16,5 @@ public class ShowItemForm {
 	/** 検索ワード */
 	private String keyword;
 	/** 値段 */
-	private Integer price;
+	private String price;
 }
