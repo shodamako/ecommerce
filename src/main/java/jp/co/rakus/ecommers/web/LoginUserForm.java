@@ -15,10 +15,10 @@ import lombok.Data;
 public class LoginUserForm {
 
 	/** ユーザーのメールアドレス */
-	@NotEmpty(message="メールアドレスの入力情報は不正です")
+	@NotEmpty(message="メールアドレスを入力してください")
 	@Email(message="emailはメールアドレスとして不正です")
 	private String email;
 	/** ユーザーのパスワード */
-	@NotBlank(message="パスワードの入力情報は不正です")
+	@NotBlank(message="パスワードを入力してください")
 	private String password;
 }

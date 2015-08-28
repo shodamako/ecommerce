@@ -15,10 +15,10 @@
 			<p>こんにちは<c:out value="${user.name}"/>さん
 			</p>
 			<p>
-			<c:if test="${user != null }" var="false">
+			<c:if test="${user.id == null }">
 				<a href="/loginUser">ログイン</a>
 				</c:if>
-			    <c:if test="${user != null}">
+			    <c:if test="${user.id != null}">
 				  <a href="/logoutUser">ログアウト</a>
 				</c:if>
 				
