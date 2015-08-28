@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +47,17 @@ public class AddCartController {
 		if(result.hasErrors()){
 			return showItemController.findById(form.getItemId(), model);
 		}
+		int quantity = form.getQuantity();
+		for(OrderItem item: cartItemList){
+			if(item.getItemId() == form.getItemId())
+			quantity += item.getQuantity(); 
+		}
+		if(quantity > 1000){
+			String quantityError = "注文数の上限は1000個です";
+			model.addAttribute("quantityError",quantityError);
+			return "forward:/cart";
+		}
+		
 		addCartService.addCart(model, form, cartItemList);
 		model.addAttribute("orderItemlist", cartItemList);
 		return "redirect:/serchItem/";
