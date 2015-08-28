@@ -25,6 +25,6 @@ public class LogoutUserController {
 	@RequestMapping
 	public String logout(SessionStatus sessionStatus) {
 		sessionStatus.setComplete();
-		return "forward:/Top";
+		return "forward:/";
 	}
 }
