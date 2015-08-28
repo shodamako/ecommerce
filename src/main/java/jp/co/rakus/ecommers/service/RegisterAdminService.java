@@ -23,14 +23,7 @@ public class RegisterAdminService {
 	public List<AdminUser> findAll(){
 		return repository.findAll();
 	}
-	/**
-	 * ID検索.
-	 * @param form 入力値情報.
-	 * @return 検索結果.
-	 */
-	public AdminUser findById(RegisterAdminForm form){
-			return repository.findById(form);
-	}
+	
 	
 	/**
 	 * Email検索.
