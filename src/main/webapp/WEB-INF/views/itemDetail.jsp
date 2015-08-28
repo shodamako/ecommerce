@@ -18,6 +18,7 @@
 			<p>こんにちはゲストさん</p>
 			<p>
 				<a href="/loginUser">ログイン</a>
+				<a href="/logoutUser">ログアウト</a>
 			</p>
 			<p>
 				<a href="/cart">カートの中身を見る</a>

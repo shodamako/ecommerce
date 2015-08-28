@@ -14,6 +14,7 @@
 			<p>こんにちはゲストさん</p>
 			<p>
 				<a href="/loginUser">ログイン</a>
+				<a href="/logoutUser">ログアウト</a>
 			</p>
 		</div>
 		<div id="linkHeader" align="left">
