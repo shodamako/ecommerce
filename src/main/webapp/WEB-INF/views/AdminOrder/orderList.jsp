@@ -1,38 +1,55 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>注文一覧画面</title>
-
-
-<link rel="stylesheet" type="text/css" href="../css/adminHeader.css" />
-
+<link rel="stylesheet" href="/css/item.css">
+<link href="/css/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+<script src="/js/jquery-1.8.3.js"></script>
+<script src="/js/jquery-ui-1.9.2.custom.js"></script>
+<script>
+	$(function() {
+		$("#tabs").tabs();
+		$('.menu').click(function() {
+			$('.menuList').slideToggle();
+		});
+	});
+</script>
+<title>管理画面：商品詳細</title>
 </head>
 <body>
-
-
-
 	<header>
-	<div id="userHeader" align="right">
-		<p>
-			こんにちは管理者[<c:out value="${page.loginName }" />]さん
-		</p>
-		<p>
-			<a href="/Admin/logout">ログアウト</a>
-		</p>
-	</div>
-	<div id="linkHeader" align="left">
-		<h1 align="left">
-			<a href="/Admin/showMenu"><img src="../../img/rakus.jpg"
-				width="50" height="50" alt="ロゴ画像"></a>
-		</h1>
-	</div>
-	<div id="title" align="center"></div>
+		<div id="linkHeader">
+			<h1 align="left">
+				<a href="/Admin/showMenu"> <img src="/img/rakus.jpg" width="50"
+					height="50" alt="ロゴ画像"></a>
+			</h1>
+		</div>
+		<div id="userHeader">
+			<div class="userHeaderContents">
+				<p>
+					管理者 <br> [
+					<c:out value="${page.loginName }" />
+					]さん
+				</p>
+			</div>
+			<div class="userHeaderContents">
+				<div class="menu">メニュー▼</div>
+				<div class="menuList">
+					<ul>
+						<li><a href="/Admin/showMenu">メニュー</a></li>
+						<li><a href="/Admin/Item">商品管理</a></li>
+						<li><a href="/Admin/orderList">注文一覧</a></li>
+						<li><a href="/Admin/logout">ログアウト</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</header>
+	<hr>
 	<div align="center">
 
 		<h1>注文一覧画面</h1>
