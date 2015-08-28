@@ -1,17 +1,12 @@
 package jp.co.rakus.ecommers.web;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import jp.co.rakus.ecommers.common.LoginCheck;
 import jp.co.rakus.ecommers.service.ShowItemService;
 
 /**
@@ -21,7 +16,6 @@ import jp.co.rakus.ecommers.service.ShowItemService;
  */
 @Controller
 @RequestMapping(value= "/showItem")
-@SessionAttributes("page")
 public class ShowItemController {
 	@Autowired
 	private ShowItemService showItemService;

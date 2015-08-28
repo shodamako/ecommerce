@@ -46,7 +46,7 @@
 		</tr>
 		<c:forEach var="item" items="${serchItempage.childPage}">
 			<tr>
-			<td><a href="/showItem/findById/${item.id}" id="id" ><img src="../img/${item.imagePath}.jpg"
+			<td><a href="/showItem/findById/${item.id}" id="id" ><img src="../img/${item.imagePath}"
 					width="150" height="125" alt="商品画像"></a></td>
 			<td><a href="/showItem/findById/${item.id}" id="id"><c:out value="${item.name}"/></a></td>
 			<td><fmt:formatNumber value="${item.price}" pattern="###,###" />

@@ -7,6 +7,8 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jp.co.rakus.ecommers.domain.Order;
 import jp.co.rakus.ecommers.domain.OrderItem;
@@ -19,6 +21,7 @@ import jp.co.rakus.ecommers.web.UserPage;
  *
  */
 @Service
+@SessionAttributes("orderItemlist")
 public class ExecutePaymentService {
 	@Autowired
 	private OrderRepository orderRepository;
@@ -28,7 +31,7 @@ public class ExecutePaymentService {
 	 * @param orderItem 注文商品
 	 * @param user ユーザ情報
 	 */
-	public void insert(ArrayList<OrderItem> orderItem, UserPage user){
+	public void insert(ArrayList<OrderItem> orderItemlist, UserPage user){
 		Calendar cal = Calendar.getInstance();
 
 		SimpleDateFormat orderSDF = new SimpleDateFormat("yyyyMMdd");
@@ -37,7 +40,7 @@ public class ExecutePaymentService {
 //		SimpleDateFormat dateSDF = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = cal.getTime();
 		int total = 0;
-		for(OrderItem items : orderItem){
+		for(OrderItem items : orderItemlist){
 			total += items.getItem().getPrice() * items.getQuantity() * 1.08;
 		}
 		
@@ -47,20 +50,22 @@ public class ExecutePaymentService {
 		order.setOrderNumber(orderSDF.format(orderNumber));
 		order.setDate(date);
 		order.setTotalPrice(total);
-		order.setOrderItemList(orderItem);
+		order.setOrderItemList(orderItemlist);
 		
 		orderRepository.insertOrder(order);
 		
-		
-		for(OrderItem item : orderItem){
+		for(OrderItem item : orderItemlist){
 			orderRepository.insertOrderItem(item);
 		}
-		
-//		
-//		OrderItem item = new OrderItem();
-//		item.setItemId((long)1);
-//		item.setOrderId((long)1);
-//		item.setQuantity(3);
-//		orderRepository.insertOrderItem(item);
+	}
+	
+	/**
+	 * ショッピングカートのアイテム情報を消去する.
+	 * @param orderItemlist 注文商品一覧
+	 * @param model　モデル
+	 */
+	public void deleteCart(ArrayList<OrderItem> orderItemlist,Model model){
+		orderItemlist.removeAll(orderItemlist);
+		model.addAttribute("orderItemlist", orderItemlist);
 	}
 }

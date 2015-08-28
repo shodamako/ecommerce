@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -33,8 +34,9 @@ public class ExecutePaymentController {
 	 * @return 決済完了画面
 	 */
 	@RequestMapping(value = "insert")
-	public String insert(@ModelAttribute("orderItemlist") ArrayList<OrderItem> orderItem, @ModelAttribute("user") UserPage user){
-		executePaymentService.insert(orderItem, user);
+	public String insert(@ModelAttribute("orderItemlist") ArrayList<OrderItem> orderItemlist, @ModelAttribute("user") UserPage user, Model model){
+		executePaymentService.insert(orderItemlist, user);
+		executePaymentService.deleteCart(orderItemlist, model);
 		return "redirect:/executePayment/finished";
 	}
 	

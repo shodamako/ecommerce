@@ -40,7 +40,7 @@
             
             <c:forEach var="item" items="${page.orderItemList}">
              <tr>
-				<td><a href="/showItem/findById/${item.itemId}"><img src="../img/<c:out value="${item.item.imagePath}"/>.jpg" width="150"height="125" alt="商品画像"></a></td>
+				<td><a href="/showItem/findById/${item.itemId}"><img src="../img/<c:out value="${item.item.imagePath}"/>" width="150"height="125" alt="商品画像"></a></td>
                 <td><a href="/showItem/findById/${item.itemId}"><c:out value="${item.item.name}"/></a></td>
                 <td>&yen;<fmt:formatNumber value="${item.item.price}" pattern="###,###" /></td>
                 <td><c:out value="${item.quantity}"/>個</td>
