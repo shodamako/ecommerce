@@ -35,6 +35,10 @@ create table orders (
   , constraint orders_PKC primary key (id)
 ) ;
 
+create sequence order_number_count
+start with 1
+increment by 1;
+
 -- 管理者
 
 create table admin_users (

@@ -87,8 +87,12 @@
 		<div id="userHeader" align="right">
 			<p>こんにちは<c:out value="${user.name}"/>さん</p>
 			<p>
+				<c:if test="${user.id == null }">
 				<a href="/loginUser">ログイン</a>
-				<a href="/logoutUser">ログアウト</a>
+				</c:if>
+			    <c:if test="${user.id != null}">
+				  <a href="/logoutUser">ログアウト</a>
+				</c:if>
 			</p>
 			<p>
 				<a href="/cart">カートの中身を見る</a>
@@ -131,11 +135,11 @@
 				</tr>
 				<tr>
 					<td>パスワード</td>
-					<td><form:input path="password"/></td>		
+					<td><form:password path="password"/></td>		
 				</tr>
 				<tr>
 					<td>確認用パスワード</td>
-					<td><form:input path="confirmPassword"/></td>		
+					<td><form:password path="confirmPassword"/></td>		
 				</tr>
 				
 			</table>

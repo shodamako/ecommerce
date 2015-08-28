@@ -32,11 +32,11 @@ public UserPage execute(LoginUserForm form,
 		BindingResult result,
 		Model model){
 	String email = form.getEmail();
-	
+	String password = form.getPassword();
 	User user = loginUserRepository.findbyMailAddress(email);
 	if(user == null){
 		return null;
-	}else{
+	}else if(user.getPassword().equals(password)){
 	UserPage page = new UserPage();
 	
 	page.setId(user.getId());
@@ -46,6 +46,8 @@ public UserPage execute(LoginUserForm form,
 	page.setTelephone(user.getTelephone());
 	
 	return page;
+	}else{
+		return null;
 	}
 }	
 

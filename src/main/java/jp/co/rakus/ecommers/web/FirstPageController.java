@@ -17,7 +17,7 @@ import jp.co.rakus.ecommers.domain.OrderItem;
  *
  */
 @Controller
-@RequestMapping("/Top")
+@RequestMapping("/")
 @Transactional
 @SessionAttributes({"orderItemlist", "user"})
 public class FirstPageController {

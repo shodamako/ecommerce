@@ -17,8 +17,12 @@
 		<div id="userHeader" align="right">
 			<p>こんにちは<c:out value="${user.name}"/>さん</p>
 			<p>
+				<c:if test="${user.id == null }">
 				<a href="/loginUser">ログイン</a>
-				<a href="/logoutUser">ログアウト</a>
+				</c:if>
+			    <c:if test="${user.id != null}">
+				  <a href="/logoutUser">ログアウト</a>
+				</c:if>
 			</p>
 			<p>
 				<a href="/cart">カートの中身を見る</a>
@@ -32,10 +36,13 @@
 		<div id="title" align="center"></div>
 	</header>
 	<h2 align="center">商品詳細</h2>
+	<h3 align="center"><c:out value="${errorMessage}"/></h3>
+	
+	<c:if test="${item != null}">
 	<table border="1" align="center">
 		<tr>
 			<td colspan="2" rowspan="3"><img
-				src="../../img/${item.imagePath}.jpg" width="150" height="150"
+				src="../../img/${item.imagePath}" width="150" height="150"
 				alt="商品画像"></td>
 			<th>商品名：</th>
 			<td align="center"><c:out value="${item.name}" /></td>
@@ -61,6 +68,8 @@
 		<div class="sendCart" align="center"><p><input type="submit" value="カートに入れる"></p></div>
 	
 </form:form>
+</c:if>
+
 		<div class="sendCart" align="center"><p><a href="/serchItem/">商品一覧画面へ戻る</a></p></div>
 <%-- 
 		<form action="/addCart" method="post">

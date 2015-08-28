@@ -26,11 +26,22 @@
 	</header>
 	<div align="center">
 		<h2>ログイン</h2>
+		<p><form:errors path="loginUserForm.*" /></p>
 		<form:form modelAttribute="loginUserForm" action="/loginUser/login">
-			メールアドレス：<form:errors path="email" />
+			メールアドレス：
+			
+			
+			<%-- <form:errors path="email" /> --%>
+			
+			
 			<form:input path="email" placeholder="email" />
 			<br>
-			パスワード：<form:errors path="password" />
+			パスワード：
+			
+			
+			<%-- <form:errors path="password" /> --%>
+			
+			
 			<form:password path="password" placeholder="password" />
 			<br>
 			<input type="submit" value="ログイン">
