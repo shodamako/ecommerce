@@ -22,7 +22,7 @@ import jp.co.rakus.ecommers.service.ShowItemDetailService;
  */
 @Controller
 @Transactional
-@RequestMapping(value = "/Admin/ShowItemDetail",method=RequestMethod.POST)
+@RequestMapping()
 public class ShowItemDetailController {
 	@Autowired
 	private ShowItemDetailService showItemDetailService;
@@ -45,7 +45,7 @@ public class ShowItemDetailController {
 	 *            モデル
 	 * @return 商品情報詳細ページ
 	 */
-	@RequestMapping
+	@RequestMapping(value = "/Admin/ShowItemDetail",method=RequestMethod.POST)
 	public String showItemDetail(ShowItemDetailForm showItemDetailForm, HttpSession session,RedirectAttributes redirectAttributes,Model model) {
 		LoginCheck lc = new LoginCheck();
 		if(lc.loginCheck(session)){
@@ -55,5 +55,10 @@ public class ShowItemDetailController {
 		}
 		model.addAttribute("editItemForm", showItemDetailService.execute(showItemDetailForm));
 		return "/AdminItem/editItem";
+	}
+	
+	@RequestMapping(value = "/Admin/ShowItemDetail*",method=RequestMethod.GET)
+	public String fraudTransition() {
+		return "/AdminItem/fraudTransition";
 	}
 }

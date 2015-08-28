@@ -31,7 +31,7 @@ import jp.co.rakus.ecommers.service.EditImageService;
  */
 @Controller
 @Transactional
-@RequestMapping(value = "/Admin/EditImage", method = RequestMethod.POST)
+@RequestMapping()
 public class EditImageController {
 	@Autowired
 	ServletContext context;
@@ -81,7 +81,7 @@ public class EditImageController {
 	 * 
 	 * @param editForm
 	 */
-	@RequestMapping
+	@RequestMapping(value = "/Admin/EditImage",method = RequestMethod.POST)
 	public String editItem(@Validated EditItemForm editItemForm, BindingResult result, HttpSession session,
 			RedirectAttributes redirectAttributes, Model model) throws Exception {
 		// ログインチェック
@@ -121,5 +121,10 @@ public class EditImageController {
 
 		model.addAttribute("editItemForm", editItemForm);
 		return "/AdminItem/editItem";
+	}
+	
+	@RequestMapping(value = "/Admin/EditImage*",method=RequestMethod.GET)
+	public String fraudTransition() {
+		return "/AdminItem/fraudTransition";
 	}
 }

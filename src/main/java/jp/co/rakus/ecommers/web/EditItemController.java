@@ -28,7 +28,7 @@ import jp.co.rakus.ecommers.service.EditItemService;
  */
 @Controller
 @Transactional
-@RequestMapping(value = "/Admin/EditItem", method = RequestMethod.POST)
+@RequestMapping()
 public class EditItemController {
 	@Autowired
 	private EditItemService editItemService;
@@ -58,7 +58,7 @@ public class EditItemController {
 	 * 
 	 * @param editForm
 	 */
-	@RequestMapping
+	@RequestMapping(value = "/Admin/EditItem",method = RequestMethod.POST)
 	public String editItem(@Validated EditItemForm editItemForm, BindingResult result, HttpSession session,
 			RedirectAttributes redirectAttributes, Model model) {
 		// ログインチェック
@@ -95,5 +95,10 @@ public class EditItemController {
 
 		redirectAttributes.addFlashAttribute("editItemForm", editItemForm);
 		return "/AdminItem/editItem";
+	}
+	
+	@RequestMapping(value = "/Admin/EditItem*",method=RequestMethod.GET)
+	public String fraudTransition() {
+		return "/AdminItem/fraudTransition";
 	}
 }
