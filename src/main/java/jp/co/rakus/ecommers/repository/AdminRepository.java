@@ -63,20 +63,7 @@ public class AdminRepository {
 			return null;
 		}
 	}
-	/**
-	 * ID検索.
-	 * @param form 入力値情報
-	 * @return 検索結果
-	 */
-	public AdminUser findById(RegisterAdminForm form){
-			try{
-				SqlParameterSource param = new BeanPropertySqlParameterSource(form);
-				AdminUser adminUser = temp.queryForObject("SELECT id,name,email,password FROM admin_users WHERE id = :id;", param, ADMIN_USER_ROW_MAPPER);
-				return adminUser;
-			}catch(EmptyResultDataAccessException e){
-				return null;
-			}
-	}
+	
 	
 	/**
 	 * Email検索.

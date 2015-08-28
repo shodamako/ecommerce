@@ -68,24 +68,14 @@ public class RegisterAdminController {
 		if(result.hasErrors()){
 			return index(session,redirectAttributes,model);
 		}
-		AdminUser user = service.findById(form);
-		if(user != null&&user.getIdRegisterCheck() != null){
-			ObjectError error = new ObjectError("idError", "IDは数字で入力して下さい");
-			result.addError(error);
-			return index(session,redirectAttributes,model);
-		}else if(user != null){	
-			ObjectError error = new ObjectError("idError", "そのIDはすでに使われています");
-			result.addError(error);
-			return index(session,redirectAttributes,model);
-		}
 		if(!(form.getPassword().equals(form.getConfirmationPass()))){
-			ObjectError error = new ObjectError("passwordError", "パスワードが一致しませんでした");
+			ObjectError error = new ObjectError("passwordError", "確認用パスワードがパスワードと異なります");
 			result.addError(error);
 			return index(session,redirectAttributes,model);
 		}
-		user = service.findByEmail(form);
+		AdminUser user = service.findByEmail(form);
 		if(user != null){
-			ObjectError error = new ObjectError("emailError", "そのアドレスはすでに使われています");
+			ObjectError error = new ObjectError("emailError", "そのアドレスは既に使われています");
 			result.addError(error);
 			return index(session,redirectAttributes,model);
 		}
