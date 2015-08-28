@@ -12,28 +12,8 @@
 <script src="/js/jquery-ui-1.9.2.custom.js"></script>
 <script>
 	$(function() {
-		$("#tabs").tabs();
-
 		$('.menu').click(function() {
 			$('.menuList').slideToggle();
-		});
-		
-		$('#file').click(function(){
-			$('.hiddenBtn').slideUp();
-			$('#chkButton').slideDown();
-		});
-		
-		$('#chkButton').click(function(){
-			var upFiles = document.getElementById("file").files;
-			for (var i = 0; i < upFiles.length; i++) {
-				if (upFiles[i].size >= 5120000) {
-					$('#chkButton').slideUp();
-					alert("画像ファイルは5120KB以下の画像を選択してください。。");
-				}else{
-					$('.hiddenBtn').slideDown();
-					$('#chkButton').slideUp();
-				}
-			}
 		});
 	});
 </script>
@@ -60,7 +40,7 @@
 					<ul>
 						<li><a href="/Admin/showMenu">メニュー</a></li>
 						<li><a href="/Admin/Item">商品管理</a></li>
-						<li><a href="">注文一覧</a></li>
+						<li><a href="/Admin/orderList">注文一覧</a></li>
 						<li><a href="/Admin/logout">ログアウト</a></li>
 					</ul>
 				</div>
@@ -101,9 +81,8 @@
 		<br>
 		<br>
 		<br>
-		<input type="button" value="チェック" id="chkButton">
 		<br>
-		<input type="submit" value="登録" class="hiddenBtn">
+		<input type="submit" value="登録">
 	</form:form>
 	<br>
 	<input type="submit" value="戻る" onclick="location.href='/Admin/Item'">
