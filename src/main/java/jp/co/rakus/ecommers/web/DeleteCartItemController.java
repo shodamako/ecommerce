@@ -29,6 +29,14 @@ public class DeleteCartItemController {
 	@Autowired
 	private DeleteCartItemService deleteCartItemService;
 	
+	/**
+	 * カート商品削除のメソッド.
+	 * @param orderItemlist カート内商品の一覧リスト
+	 * @param itemId
+	 * @param redirectattributes
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public String delete(@ModelAttribute("orderItemlist")ArrayList<OrderItem> orderItemlist, 
 
