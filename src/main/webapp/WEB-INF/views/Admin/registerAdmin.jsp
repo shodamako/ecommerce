@@ -59,10 +59,6 @@
   <form:form modelAttribute="registerAdminForm" action="/Admin/registShow/register">
   <table>
   	<tr>
-  		<td id="tableName">ID:</td>
-  		<td><c:out value="${adminUserNum}"/><input type="hidden" name="id" value="${adminUserNum}"></td>
-  	</tr>
-  	<tr>
    		<td id="tableName">名前:</td>
    		<td><form:input path="name" autofocus="autofocus"/></td>
     </tr>
@@ -79,6 +75,7 @@
   		<td><form:password path="confirmationPass"/></td>
   </tr>
   </table><br>
+  <input type="hidden" name="id" value="${adminUserNum}">
     <input type="submit" value="登録">
 </form:form>
 	<form action="/Admin/registShow">
