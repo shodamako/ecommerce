@@ -1,6 +1,7 @@
 package jp.co.rakus.ecommers.web;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -36,5 +37,6 @@ public class RegisterUserForm {
 	private String address;
 	/**ユーザ電話番号*/
 	@NotBlank(message="電話番号を入力してください")
+	@Pattern(regexp = "^\\d{2,4}-\\d{3,5}-\\d{3,5}$", message="電話番号の記入方法が違います。0-9の数字とハイフン（-）のみを使用してください。")
 	private String telephone;
 }
