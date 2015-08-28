@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
@@ -86,14 +87,10 @@
 			<c:forEach var="child" items="${ShowOrderDetailPage.orderItemList}">
 				<tr>
 					<td><c:out value="${child.item.name}" /></td>
-					<td align="right"><fmt:formatNumber value="${child.item.price}"
-							pattern="###,###" />円</td>
-					<td align="center"><c:out value="${child.quantity}" /></td>
-<<<<<<< HEAD
-					<td><fmt:formatNumber
-=======
 					<td align="right"><fmt:formatNumber
->>>>>>> feature/login
+							value="${child.item.price}" pattern="###,###" />円</td>
+					<td align="center"><c:out value="${child.quantity}" /></td>
+					<td align="right"><fmt:formatNumber
 							value="${child.item.price * child.quantity}" pattern="###,###" />円</td>
 				</tr>
 			</c:forEach>
@@ -104,21 +101,14 @@
 		<table border="1">
 			<tr>
 				<th nowrap>小計</th>
-<<<<<<< HEAD
-				<td><fmt:formatNumber value="${ShowOrderDetailPage.totalPrice/1.08}"
-=======
-				<td align="right"><fmt:formatNumber value="${ShowOrderDetailPage.totalPrice / 1.08}"
->>>>>>> feature/login
-						pattern="###,###" />円</td>
+				<td align="right"><fmt:formatNumber
+						value="${ShowOrderDetailPage.totalPrice / 1.08}" pattern="###,###" />円</td>
 			</tr>
 			<tr>
 				<th nowrap>税</th>
 				<td align="right"><fmt:formatNumber
-<<<<<<< HEAD
-						value="${ShowOrderDetailPage.totalPrice /1.08* 0.08}" pattern="###,###" />円</td>
-=======
-						value="${ShowOrderDetailPage.totalPrice /1.08 * 0.08}" pattern="###,###" />円</td>
->>>>>>> feature/login
+						value="${ShowOrderDetailPage.totalPrice /1.08* 0.08}"
+						pattern="###,###" />円</td>
 			</tr>
 			<tr>
 				<th nowrap>支払い方法</th>
@@ -131,12 +121,7 @@
 			<tr>
 				<th nowrap>総計</th>
 				<td align="right"><fmt:formatNumber
-<<<<<<< HEAD
-						value="${ShowOrderDetailPage.totalPrice+ 500}"
-=======
-						value="${ShowOrderDetailPage.totalPrice + 500}"
->>>>>>> feature/login
-						pattern="###,###" />円</td>
+						value="${ShowOrderDetailPage.totalPrice+ 500}" pattern="###,###" />円</td>
 			</tr>
 		</table>
 		<br>
@@ -155,40 +140,39 @@
 				<td><form:form modelAttribute="orderStatusForm"
 						action="/Admin/ShowOrderDetail/UpdateStatus">
 						<select name="status">
-						<c:choose>
-							<c:when test="${ShowOrderDetailPage.status==1}">
-								<option value="1" selected>未入金</option>
-								<option value="2" >入金済み</option>
-								<option value="3" >発送済み</option>
-								<option value="9" >キャンセル</option>
-							</c:when>
-							<c:when test="${ShowOrderDetailPage.status==2}">
-								<option value="1" >未入金</option>
-								<option value="2" selected>入金済み</option>
-								<option value="3" >発送済み</option>
-								<option value="9" >キャンセル</option>
-							</c:when>
-							<c:when test="${ShowOrderDetailPage.status==3}">
-								<option value="1" >未入金</option>
-								<option value="2" >入金済み</option>
-								<option value="3" selected>発送済み</option>
-								<option value="9" >キャンセル</option>
-							</c:when>
-							<c:when test="${ShowOrderDetailPage.status==9}">
-								<option value="1" >未入金</option>
-								<option value="2" >入金済み</option>
-								<option value="3" >発送済み</option>
-								<option value="9" selected>キャンセル</option>
-							</c:when>
-						</c:choose>
+							<c:choose>
+								<c:when test="${ShowOrderDetailPage.status==1}">
+									<option value="1" selected>未入金</option>
+									<option value="2">入金済み</option>
+									<option value="3">発送済み</option>
+									<option value="9">キャンセル</option>
+								</c:when>
+								<c:when test="${ShowOrderDetailPage.status==2}">
+									<option value="1">未入金</option>
+									<option value="2" selected>入金済み</option>
+									<option value="3">発送済み</option>
+									<option value="9">キャンセル</option>
+								</c:when>
+								<c:when test="${ShowOrderDetailPage.status==3}">
+									<option value="1">未入金</option>
+									<option value="2">入金済み</option>
+									<option value="3" selected>発送済み</option>
+									<option value="9">キャンセル</option>
+								</c:when>
+								<c:when test="${ShowOrderDetailPage.status==9}">
+									<option value="1">未入金</option>
+									<option value="2">入金済み</option>
+									<option value="3">発送済み</option>
+									<option value="9" selected>キャンセル</option>
+								</c:when>
+							</c:choose>
 						</select>
 						<input type="hidden" name="id" value="${ShowOrderDetailPage.id}">
 						<input class="btn" type="submit" value="更新">
 					</form:form></td>
 			</tr>
 		</table>
-		<br>
-		<br> <a href="/Admin/orderList">注文一覧に戻る</a>
+		<br> <br> <a href="/Admin/orderList">注文一覧に戻る</a>
 
 	</div>
 </body>
