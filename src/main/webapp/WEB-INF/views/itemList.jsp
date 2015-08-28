@@ -12,11 +12,7 @@
 <body>
 	<header>
 		<div id="userHeader" align="right">
-			<p>こんにちはゲスト
-			<%-- <c:if test ="${user.name != null }">
-			<c:out value="${user.name}"/>
-			</c:if>--%>
-			さん
+			<p>こんにちは<c:out value="${user.name}"/>さん
 			</p>
 			<p>
 			<c:if test="${user != null }" var="false">

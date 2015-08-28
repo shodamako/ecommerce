@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +11,11 @@
 <body>
 <header>
 		<div id="userHeader" align="right">
-			<p>こんにちはゲストさん</p>
-			<p><a href="/loginUser">ログイン</a></p>
+			<p>こんにちは<c:out value="${user.name}"/>さん</p>
+			<p>
+			  <a href="/loginUser">ログイン</a>
+			  <a href="/logoutUser">ログアウト</a>
+			</p>
 			<p><a href="/cart">カートの中身を見る</a></p>
 		</div>
 				<div id="linkHeader" align="left">
