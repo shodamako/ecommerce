@@ -130,8 +130,8 @@
 					<td><form:input path="address"/></td>		
 				</tr>
 				<tr>
-					<td>電話番号</td>
-					<td><form:input path="telephone"/></td>		
+					<td>電話番号 (例：090-1234-5678)</td>
+					<td><form:input path="telephone1" size="3"/>-<form:input path="telephone2" size="3"/>-<form:input path="telephone3" size="3"/></td>		
 				</tr>
 				<tr>
 					<td>パスワード</td>
