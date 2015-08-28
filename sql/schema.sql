@@ -36,7 +36,7 @@ create table orders (
 ) ;
 
 create sequence order_number_count
-start with 0
+start with 1
 increment by 1;
 
 -- 管理者
