@@ -67,39 +67,10 @@
 			<form:hidden path="itemId" value="${item.id}"/>
 		<div class="sendCart" align="center"><p><input type="submit" value="カートに入れる"></p></div>
 	
-</form:form>
-</c:if>
+	</form:form>
+	</c:if>
 
 		<div class="sendCart" align="center"><p><a href="/serchItem/">商品一覧画面へ戻る</a></p></div>
-<%-- 
-		<form action="/addCart" method="post">
-
-			個数：<select name="quantity">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-			</select> <input type="hidden" name="itemId" value="${item.id}">
-			<div class="sendCart" align="center">
-				<p>
-					<input type="submit" value="カートに入れる">
-				</p>
-			</div>
-		</form>
-
-	</div>
-
-	<div class="sendCart" align="center">
-		<p>
-			<a href="itemList.html">商品一覧画面へ戻る</a>
-		</p>
-		--%>
-	</div>
 
 </body>
 </html>

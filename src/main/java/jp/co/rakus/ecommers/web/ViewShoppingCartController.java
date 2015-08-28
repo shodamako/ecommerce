@@ -27,6 +27,11 @@ public class ViewShoppingCartController {
 	@Autowired
 	ViewShoppingCartService viewShoppingService;
 	
+	@ModelAttribute
+	public AddCartForm setUpAddCartForm(){
+		return new AddCartForm();
+	}
+	
 	/**
 	 * カート内商品の一覧を出すメソッド.
 	 * @param orderItemlist カート内商品一覧のリスト

@@ -62,4 +62,14 @@ public class AddCartController {
 		model.addAttribute("orderItemlist", cartItemList);
 		return "redirect:/serchItem/";
 	}
+	
+	@RequestMapping("/update")
+	public String update(@Validated AddCartForm form, BindingResult result, Model model, @ModelAttribute("orderItemlist") ArrayList<OrderItem> cartItemList){
+		if(result.hasErrors()){
+			return "forward:/cart";
+		}
+		addCartService.update(model, form, cartItemList);
+		model.addAttribute("orderItemlist", cartItemList);
+		return "redirect:/cart";
+	}
 }
