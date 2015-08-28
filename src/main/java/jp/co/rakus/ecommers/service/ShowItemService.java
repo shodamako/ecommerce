@@ -85,7 +85,14 @@ public class ShowItemService {
 			}
 		} else if (form.getId()==3){
 			String keyword = "%" + form.getKeyword() + "%";
-			List<Item> itemList = itemRepository.findByKeywordAndPrice(keyword,form.getPrice());
+			//値段の設定が正しいか判定するために変数priceのデフォルト値を-1とする
+			Integer price = -1;
+			try {
+				price = new Integer(form.getPrice());
+			} catch (Exception e) {
+				
+			}
+			List<Item> itemList = itemRepository.findByKeywordAndPrice(keyword,price);
 			if(itemList.isEmpty()){
 				msg = "該当する商品がありません";
 				itemList = itemRepository.findAll();
@@ -98,7 +105,7 @@ public class ShowItemService {
 				}
 				childPageList.add(childPage);
 			}
-			if (form.getPrice() == null) {
+			if (price == -1) {
 				msg = "値段を設定してください";
 			}
 		}
