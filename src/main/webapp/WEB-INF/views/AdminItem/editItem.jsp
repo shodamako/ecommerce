@@ -10,6 +10,14 @@
 <link href="/css/jquery-ui-1.9.2.custom.css" rel="stylesheet">
 <script src="/js/jquery-1.8.3.js"></script>
 <script src="/js/jquery-ui-1.9.2.custom.js"></script>
+<script>
+	$(function() {
+		$("#tabs").tabs();
+		$('.menu').click(function() {
+			$('.menuList').slideToggle();
+		});
+	});
+</script>
 <title>管理画面：商品詳細</title>
 </head>
 <body>
