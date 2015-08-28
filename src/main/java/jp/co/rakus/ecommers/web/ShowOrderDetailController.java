@@ -51,7 +51,6 @@ public class ShowOrderDetailController {
 		statusMap.put(2, "入金済");
 		statusMap.put(3, "発送済");
 		statusMap.put(9, "キャンセル");
-
 //		for (OrderItem orderItem : order.getOrderItemList()) {
 //			ShowOrderDetailChildPage childPage = new ShowOrderDetailChildPage();
 //			BeanUtils.copyProperties(orderItem, childPage);
