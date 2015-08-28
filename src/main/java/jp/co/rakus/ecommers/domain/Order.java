@@ -16,6 +16,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order {
+	
+	private User user;
 	public Order(Long id, String orderNumber, Long userId, Integer status, Integer totalPrice,
 			Date date,String name) {
 		this.id = id;
@@ -25,6 +27,17 @@ public class Order {
 		this.totalPrice = totalPrice;
 		this.date=date;
 		this.name=name;
+	}
+	public Order(Long id, String orderNumber, Long userId, Integer status, List<OrderItem> orderItemList,
+			Integer totalPrice, Date date,User user) {
+		this.id = id;
+		this.orderNumber = orderNumber;
+		this.userId=userId;
+		this.status=status;
+		this.orderItemList=orderItemList;
+		this.totalPrice = totalPrice;
+		this.date=date;
+		this.user=user;
 	}
 	/**注文ID*/
 	private Long id;

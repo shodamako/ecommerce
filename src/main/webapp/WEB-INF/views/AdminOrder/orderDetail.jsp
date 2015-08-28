@@ -28,16 +28,21 @@
 
 
 	<header>
-		<div id="userHeader" align="right">
-			<p>こんにちは管理者[<c:out value="${page.loginName }"/>]さん</p>
-			<p>
-				<a href="administerLogin.html">ログアウト</a>
-			</p>
-		</div>
-		<div id="linkHeader" align="left">
-			<h1 align ="left"><a href="/Admin/showMenu"><img src="../img/rakus.jpg" width="50"
-				height="50" alt="ロゴ画像">ＥＣサイトラクス</a></h1>
-			<div id="title" align="center"></div>
+	<div id="userHeader" align="right">
+		<p>
+			こんにちは管理者[<c:out value="${page.loginName }" />]さん
+		</p>
+		<p>
+			<a href="/Admin/logout">ログアウト</a>
+		</p>
+	</div>
+	<div id="linkHeader" align="left">
+		<h1 align="left">
+			<a href="/Admin/showMenu"><img src="../../img/rakus.jpg"
+				width="50" height="50" alt="ロゴ画像"></a>
+		</h1>
+	</div>
+	<div id="title" align="center"></div>
 	</header>
 
 	<div align="center">
@@ -45,23 +50,23 @@
 		<table border="1">
 			<tr>
 				<th nowrap>注文NO</th>
-				<td><c:out value="${ShowOrderDetailPage.no}" /></td>
+				<td><c:out value="${ShowOrderDetailPage.orderNumber}" /></td>
 			</tr>
 			<tr>
 				<th nowrap>名前</th>
-				<td><c:out value="${ShowOrderDetailPage.name}" /></td>
+				<td><c:out value="${ShowOrderDetailPage.user.name}" /></td>
 			</tr>
 			<tr>
 				<th nowrap>アドレス</th>
-				<td><c:out value="${ShowOrderDetailPage.email}" /></td>
+				<td><c:out value="${ShowOrderDetailPage.user.email}" /></td>
 			</tr>
 			<tr>
 				<th nowrap>住所</th>
-				<td><c:out value="${ShowOrderDetailPage.address}" /></td>
+				<td><c:out value="${ShowOrderDetailPage.user.address}" /></td>
 			</tr>
 			<tr>
 				<th nowrap>TEL</th>
-				<td><c:out value="${ShowOrderDetailPage.telephone}" /></td>
+				<td><c:out value="${ShowOrderDetailPage.user.telephone}" /></td>
 			</tr>
 		</table>
 		<br>
@@ -74,13 +79,12 @@
 				<th nowrap>金額</th>
 			</tr>
 			<c:forEach var="child"
-				items="${ShowOrderDetailPage.showOrderDetailChildPageList}">
+				items="${ShowOrderDetailPage.orderItemList}">
 				<tr>
-					<td><c:out value="${child.name}" /></td>
-					<td><fmt:formatNumber value="${child.price}" pattern="###,###" />円</td>
-					<td>×</td>
-					<td><c:out value="${child.count}" /></td>
-					<td><fmt:formatNumber value="${child.totalPrice}"
+					<td><c:out value="${child.item.name}" /></td>
+					<td><fmt:formatNumber value="${child.item.price}" pattern="###,###" />円</td>
+					<td><c:out value="${child.quantity}" /></td>
+					<td><fmt:formatNumber value="${ShowOrderDetailPage.totalPrice}"
 							pattern="###,###" />円</td>
 				</tr>
 			</c:forEach>
@@ -96,21 +100,20 @@
 			</tr>
 			<tr>
 				<th nowrap>税</th>
-				<td><fmt:formatNumber value="${ShowOrderDetailPage.tax}"
+				<td><fmt:formatNumber value="${ShowOrderDetailPage.totalPrice * 0.08}"
 						pattern="###,###" />円</td>
 			</tr>
 			<tr>
 				<th nowrap>支払い方法</th>
-				<td><c:out value="${ShowOrderDetailPage.paymentMethod}" /></td>
+				<td><c:out value="${ShowOrderDetailPage.payment}" /></td>
 			</tr>
 			<tr>
 				<th nowrap>送料一律</th>
-				<td><fmt:formatNumber value="${SHowOrderDetailPage.postage}"
-						pattern="###,###" />円</td>
+				<td>500円</td>
 			</tr>
 			<tr>
 				<th nowrap>総計</th>
-				<td><fmt:formatNumber value="${ShowOrderDetailPage.grandTotal}"
+				<td><fmt:formatNumber value="${ShowOrderDetailPage.totalPrice * 1.08 + 500}"
 						pattern="###,###" />円</td>
 			</tr>
 		</table>
@@ -128,22 +131,17 @@
 						test="${ShowOrderDetailPage.status==3}">発送済み</c:if> <c:if
 						test="${ShowOrderDetailPage.status==9}">キャンセル</c:if></td>
 				<td>
-					<form action="/changeorderstatus/update" method="post">
-						<select name="status">
-							<option value="1">未入金</option>
-							<option value="2" selected>入金済み</option>
-							<option value="3">発送済み</option>
-							<option value="9">キャンセル</option>
-						</select> <input type="hidden" name="id"
-							value="${ShowOrderDetailPage.id}"> <input class="btn"
-							type="submit" value="更新">
-					</form>
+					<form:form modelAttribute="orderStatusForm" action="/Admin/ShowOrderDetail/UpdateStatus" >
+						<form:select path="status" items="${statusMap }"/>
+						 <input type="hidden" name="id" value="${ShowOrderDetailPage.id}">
+						  <input class="btn" type="submit" value="更新">
+					</form:form>
 				</td>
 			</tr>
 		</table>
 		<br>
 		<p style="color:red"><c:out value="${message}"/></p>
-		<br> <a href="/AdminOrder/orderList">注文一覧に戻る</a>
+		<br> <a href="/Admin/orderList">注文一覧に戻る</a>
 
 	</div>
 </body>
