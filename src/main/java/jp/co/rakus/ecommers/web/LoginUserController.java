@@ -52,6 +52,7 @@ public class LoginUserController {
 	 * @return　商品一覧画面に飛ぶ、エラー発生時はログイン画面に戻る
 	 */
 	@RequestMapping(value = "/login")
+	
 	public String login(@Validated LoginUserForm form, BindingResult result, RedirectAttributes redirectAttributes, 
 			@ModelAttribute("user") UserPage before, Model model) {
 		
